@@ -65,24 +65,22 @@ public class NaturalLinkedMerge {
     }
   }
 
-  private Node mergeSort() {
-    Node x = ptrStartNode.pointerTo(0, ptrSize, ptrStartNode).getNode();
-    for (int i=1; i<ptrSize; i++) {
-      x = mergeTwoListRecursive(x, ptrStartNode.pointerTo(i, ptrSize, ptrStartNode).getNode());
-    }
-
-    return x;
-  }
-
   private Node mergeSort(Ptr startPtr) {
-    if (startPtr == null || startPtr.getNext() == null) {
+    if (startPtr.getNext() == null) {
       return startPtr.getNode();
     }
 
     Node left = startPtr.getNode();
     Node right = startPtr.getNext().getNode();
 
+    System.out.println("\nleft");
+    printLinkList(left);
+    System.out.println("\ndone left");
+    System.out.println("\nright");
+    printLinkList(right);
+    System.out.println("\ndone right");
     Node sortedList = mergeTwoListRecursive(left, right);
+    mergeSort(startPtr.getNext());
     return sortedList;
   }
 

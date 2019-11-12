@@ -22,19 +22,6 @@ class Ptr {
     return here;
   }
 
-//  private void addPointer(Ptr ptr) {
-//    if (next == null) {
-//      next = ptr;
-//      size++;
-//    } else {
-//      Ptr temp = next;
-//      while (temp.next != null) {
-//        temp = temp.next;
-//      }
-//      temp.next = ptr;
-//      size++;
-//    }
-//  }
 
   public void setNext(Ptr next) {
     this.next = next;

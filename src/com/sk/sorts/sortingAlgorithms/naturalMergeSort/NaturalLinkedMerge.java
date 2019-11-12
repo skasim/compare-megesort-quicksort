@@ -9,43 +9,61 @@ public class NaturalLinkedMerge {
 
 
   public static void main(String[] args) {
-    new NaturalLinkedMerge();
+    NaturalLinkedMerge linkedMerge= new NaturalLinkedMerge();
+    linkedMerge.addNode(5);
+    linkedMerge.addNode(8);
+    linkedMerge.addNode(13);
+    linkedMerge.addNode(16);
+    linkedMerge.addNode(2);
+    linkedMerge.addNode(6);
+    linkedMerge.addNode(10);
+    linkedMerge.addNode(14);
+    linkedMerge.addNode(11);
+    linkedMerge.addNode(1);
+    linkedMerge.addNode(4);
+    linkedMerge.addNode(15);
+    linkedMerge.printLinkList(linkedMerge.startNode);
+    linkedMerge.createPointersLinkedList();
+    Node sl = linkedMerge.ptrStartNode.getNode();
+    Node sortedList = linkedMerge.mergeSort(sl, linkedMerge.ptrStartNode);
+    System.out.println("\n\nfinal\n");
+    linkedMerge.printLinkList(sortedList);
   }
 
   public NaturalLinkedMerge() {
-    Node node1 = new Node(5);
-    Node node2 = new Node(8);
-    Node node3 = new Node(13);
-    Node node4 = new Node(16);
-    Node node5 = new Node(2);
-    Node node6 = new Node(6);
-    Node node7 = new Node(10);
-    Node node8 = new Node(14);
-    Node node9 = new Node(11);
-    Node node10 = new Node(1);
-    Node node11 = new Node(4);
-    Node node12 = new Node(15);
+//    Node node1 = new Node(5);
+//    Node node2 = new Node(8);
+//    Node node3 = new Node(13);
+//    Node node4 = new Node(16);
+//    Node node5 = new Node(2);
+//    Node node6 = new Node(6);
+//    Node node7 = new Node(10);
+//    Node node8 = new Node(14);
+//    Node node9 = new Node(11);
+//    Node node10 = new Node(1);
+//    Node node11 = new Node(4);
+//    Node node12 = new Node(15);
+//
+//    node1.setNext(node2);
+//    node2.setNext(node3);
+//    node3.setNext(node4);
+//    node4.setNext(node5);
+//    node5.setNext(node6);
+//    node6.setNext(node7);
+//    node7.setNext(node8);
+//    node8.setNext(node9);
+//    node9.setNext(node10);
+//    node10.setNext(node11);
+//    node11.setNext(node12);
 
-    node1.setNext(node2);
-    node2.setNext(node3);
-    node3.setNext(node4);
-    node4.setNext(node5);
-    node5.setNext(node6);
-    node6.setNext(node7);
-    node7.setNext(node8);
-    node8.setNext(node9);
-    node9.setNext(node10);
-    node10.setNext(node11);
-    node11.setNext(node12);
-
-    startNode = node1;
+//    startNode = node1;
     ptrSize = 0;
 
-    createPointersLinkedList();
-    Node sl = ptrStartNode.getNode();
-    Node sortedList = mergeSort(sl, ptrStartNode);
-    System.out.println("\n\nfinal\n");
-    printLinkList(sortedList);
+//    createPointersLinkedList();
+//    Node sl = ptrStartNode.getNode();
+//    Node sortedList = mergeSort(sl, ptrStartNode);
+//    System.out.println("\n\nfinal\n");
+//    printLinkList(sortedList);
 
 //    Node sortedListIter = mergeSort();
 //    System.out.println("\n\nfinal\n");
@@ -80,11 +98,22 @@ public class NaturalLinkedMerge {
       return sortedList;
     }
 
-//    Node left = startPtr.getNode();
     Node right = startPtr.getNext().getNode();
-
     sortedList = mergeSort(mergeTwoListRecursive(sortedList, right), startPtr.getNext());
     return sortedList;
+  }
+
+  private void addNode(int data) {
+    Node node = new Node(data);
+    if (startNode == null) {
+      startNode = node;
+    } else {
+      Node temp = startNode;
+      while (temp.next != null) {
+        temp = temp.next;
+      }
+      temp.next = node;
+    }
   }
 
   private void addPointer(Ptr ptr) {

@@ -1,11 +1,11 @@
-package com.sk.sorts.sortingAlgorithms;
+package com.sk.sorts.sortingAlgorithms.naturalMergeExamples;
 
 // Java program to illustrate merge sorted
-// of linkedList
+// of MergeSort
 
 // TODO https://www.geeksforgeeks.org/java-program-for-merge-sort-for-linked-lists/
 
-public class linkedList {
+public class MergeSort {
   node head = null;
   // node a, b;
   static class node {
@@ -79,16 +79,16 @@ public class linkedList {
     return slow;
   }
 
-  void push(int new_data)
+  void push(int newData)
   {
     /* allocate node */
-    node new_node = new node(new_data);
+    node newNode = new node(newData);
 
     /* link the old list off the new node */
-    new_node.next = head;
+    newNode.next = head;
 
     /* move the head to point to the new node */
-    head = new_node;
+    head = newNode;
   }
 
   // Utility function to print the linked list
@@ -103,7 +103,7 @@ public class linkedList {
   public static void main(String[] args)
   {
 
-    linkedList li = new linkedList();
+    MergeSort li = new MergeSort();
     /*
      * Let us create a unsorted linked list to test the functions
      * created. The list shall be a: 2->3->20->5->10->15

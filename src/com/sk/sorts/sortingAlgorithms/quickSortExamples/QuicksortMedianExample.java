@@ -1,4 +1,4 @@
-package com.sk.sorts.sortingAlgorithms;
+package com.sk.sorts.sortingAlgorithms.quickSortExamples;
 
 public class QuicksortMedianExample {
 

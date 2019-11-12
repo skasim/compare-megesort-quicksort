@@ -1,4 +1,4 @@
-package com.sk.sorts.sortingAlgorithms;
+package com.sk.sorts.sortingAlgorithms.quickSortExamples;
 
 import java.util.Arrays;
 import java.util.Random;

@@ -1,42 +1,36 @@
-package com.sk.sorts.sortingAlgorithms;
+package com.sk.sorts.sortingAlgorithms.quickSorts;
 
 import java.util.Arrays;
 
-
-/**
- * Java program to Sort integer array using QuickSortMultiTry algorithm using recursion.
- * Recursive QuickSortMultiTry algorithm, partitioned list into two parts by a pivot,
- * and then recursively sorts each list.
- * @author Javin Paul
- */
-public class BasicQuickSort {
+public class MedianOf3QuickSort {
+  // TODO https://examples.javacodegeeks.com/core-java/quicksort-algorithm-in-java-code-example/
 
   public static void main(String args[]) {
 
     int[] input = { 7, 2, 1, 6, 8, 5, 3, 4};
     System.out.println("Before sorting : " + Arrays.toString(input));
-    basicQuickSort(input); // sort the integer array using quick sort algorithm
+    medianOf3QuickSort(input); // sort the integer array using quick sort algorithm
     System.out.println("After sorting : " + Arrays.toString(input));
 
 
     int[] input2 = { 23, 31, 1, 21, 36, 72};
     System.out.println("Before sorting : " + Arrays.toString(input2));
-    basicQuickSort(input2); // sort the integer array using quick sort algorithm
+    medianOf3QuickSort(input2); // sort the integer array using quick sort algorithm
     System.out.println("After sorting : " + Arrays.toString(input2));
 
     // input with duplicates
     int[] withDuplicates = { 11, 14, 16, 12, 11, 15};
     System.out.println("Before sorting : " + Arrays.toString(withDuplicates));
-    basicQuickSort(withDuplicates); // sort the array using quick sort algorithm
+    medianOf3QuickSort(withDuplicates); // sort the array using quick sort algorithm
     System.out.println("After sorting : " + Arrays.toString(withDuplicates));
   }
 
   /**
-   * public method exposed to client, sorts given array using QuickSortMultiTry
+   * public method exposed to client, sorts given array using QuickSortMultiTry //TODO FIX
    * Algorithm in Java
    * @param array
    */
-  public static void basicQuickSort(int[] array) {
+  public static void medianOf3QuickSort(int[] array) {
     recursiveQuickSort(array, 0, array.length - 1);
   }
 
@@ -51,16 +45,12 @@ public class BasicQuickSort {
                                         int endIdx) {
 
     int idx = partition(array, startIdx, endIdx);
-    System.out.println("start index: " + startIdx);
-    System.out.println("end index: " + endIdx);
 
     if (endIdx - startIdx <= 1) {
-      System.out.println("1 index");
       return;
     }
 
     if (endIdx - startIdx == 2) {
-      System.out.println("2 index");
       if (array[startIdx] > array[endIdx]) {
         int temp = array[endIdx];
         array[endIdx] = array[startIdx];
@@ -73,19 +63,29 @@ public class BasicQuickSort {
 
     // Recursively call quicksort with right part of the partitioned array
     recursiveQuickSort(array, idx, endIdx);
+  }
+  public static int getMedian(int[] a, int left,int right){
+    int center = (left+right)/2;
 
+    if(a[left] > a[center])
+      swap(a, left,center);
 
-//    // Recursively call quicksort with left part of the partitioned array
-//    if (startIdx < idx - 1) {
-//      recursiveQuickSort(array, startIdx, idx - 1);
-//    }
-//
-//    // Recursively call quick sort with right part of the partitioned array
-//    if (endIdx > idx) {
-//      recursiveQuickSort(array, idx, endIdx);
-//    }
+    if(a[left] > a[right])
+      swap(a, left, right);
+
+    if(a[center] > a[right])
+      swap(a, center, right);
+
+    swap(a, center, right);
+    return a[right];
   }
 
+  // This method is used to swap the values between the two given index
+  public static void swap(int[] a, int left,int right){
+    int temp = a[left];
+    a[left] = a[right];
+    a[right] = temp;
+  }
   /**
    * Divides array from pivot, left side contains elements less than
    * Pivot while right side contains elements greater than pivot.
@@ -96,7 +96,7 @@ public class BasicQuickSort {
    * @return the partition index
    */
   public static int partition(int[] array, int left, int right) {
-    int pivot = array[left]; // taking first element as pivot
+    int pivot = getMedian(array, left, right); // taking first element as pivot
 
     while (left <= right) {
       //searching number which is greater than pivot, bottom up

@@ -42,13 +42,14 @@ public class NaturalLinkedMerge {
     ptrSize = 0;
 
     createPointersLinkedList();
-    Node sortedList = mergeSort(ptrStartNode);
+    Node sl = ptrStartNode.getNode();
+    Node sortedList = mergeSort(sl, ptrStartNode);
     System.out.println("\n\nfinal\n");
     printLinkList(sortedList);
 
-//    Node sortedList = mergeSort();
+//    Node sortedListIter = mergeSort();
 //    System.out.println("\n\nfinal\n");
-//    printLinkList(sortedList);
+//    printLinkList(sortedListIter);
   }
 
 
@@ -65,22 +66,24 @@ public class NaturalLinkedMerge {
     }
   }
 
-  private Node mergeSort(Ptr startPtr) {
-    if (startPtr.getNext() == null) {
-      return startPtr.getNode();
+  private Node mergeSort() {
+    Node sortedList = ptrStartNode.pointerTo(0, ptrSize, ptrStartNode).getNode();
+    for (int i=1; i<ptrSize; i++) {
+      sortedList = mergeTwoListRecursive(sortedList, ptrStartNode.pointerTo(i, ptrSize, ptrStartNode).getNode());
     }
 
-    Node left = startPtr.getNode();
+    return sortedList;
+  }
+
+  private Node mergeSort(Node sortedList, Ptr startPtr) {
+    if (startPtr == null|| startPtr.getNext() == null) {
+      return sortedList;
+    }
+
+//    Node left = startPtr.getNode();
     Node right = startPtr.getNext().getNode();
 
-    System.out.println("\nleft");
-    printLinkList(left);
-    System.out.println("\ndone left");
-    System.out.println("\nright");
-    printLinkList(right);
-    System.out.println("\ndone right");
-    Node sortedList = mergeTwoListRecursive(left, right);
-    mergeSort(startPtr.getNext());
+    sortedList = mergeSort(mergeTwoListRecursive(sortedList, right), startPtr.getNext());
     return sortedList;
   }
 
@@ -97,7 +100,6 @@ public class NaturalLinkedMerge {
       ptrSize++;
     }
   }
-
 
   private void createPointersList() {
     Node temp = startNode;

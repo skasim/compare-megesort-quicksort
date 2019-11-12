@@ -4,6 +4,8 @@ public class NaturalLinkedMerge {
 
   Node startNode;
   Ptr[] ptrsList = new Ptr[100];
+  Ptr ptrStartNode;
+  int ptrSize;
 
 
   public static void main(String[] args) {
@@ -61,25 +63,32 @@ public class NaturalLinkedMerge {
 //    otherList3.setNext(otherList4);
 
     startNode = node1;
+    ptrSize = 0;
 
-    printLinkList(startNode);
-    System.out.println();
-    createPointersList();
-    System.out.println();
-    System.out.println("one node");
-    printLinkList(ptrsList[1].getNode());
-
-    System.out.println();
-    System.out.println("two node");
-    printLinkList(ptrsList[2].getNode());
-
-    System.out.println();
-    System.out.println("three node");
-    printLinkList(ptrsList[3].getNode());
-
-    System.out.println();
-    System.out.println("REPRINT LIST");
-    printLinkList(startNode);
+//    printLinkList(startNode);
+//    System.out.println();
+//    createPointersList();
+//
+//    System.out.println();
+//    System.out.println("zero node");
+//    printLinkList(ptrsList[0].getNode());
+//
+//
+//    System.out.println();
+//    System.out.println("one node");
+//    printLinkList(ptrsList[1].getNode());
+//
+//    System.out.println();
+//    System.out.println("two node");
+//    printLinkList(ptrsList[2].getNode());
+//
+//    System.out.println();
+//    System.out.println("three node");
+//    printLinkList(ptrsList[3].getNode());
+//
+//    System.out.println();
+//    System.out.println("REPRINT LIST");
+//    printLinkList(startNode);
 
 //    Node leftStart = node1;
 //    Node rightStart = otherList1;
@@ -90,7 +99,71 @@ public class NaturalLinkedMerge {
 //    printLinkList(merged);
 
 //    printLinkList(sortedStartNode);
+
+
+
+    printLinkList(startNode);
+
+    createPointersLinkedList();
+    System.out.println("SIZE: " + ptrSize);
+    System.out.println();
+    System.out.println("zero node");
+    printLinkList(ptrStartNode.pointerTo(0, ptrSize, ptrStartNode).getNode());
+    System.out.println();
+    System.out.println("one node");
+    printLinkList(ptrStartNode.pointerTo(1, ptrSize, ptrStartNode).getNode());
+
+    System.out.println();
+    System.out.println("two node");
+    printLinkList(ptrStartNode.pointerTo(2, ptrSize, ptrStartNode).getNode());
+
+    System.out.println();
+    System.out.println("three node");
+    printLinkList(ptrStartNode.pointerTo(3, ptrSize, ptrStartNode).getNode());
+
+    System.out.println();
+    System.out.println("REPRINT LIST");
+    printLinkList(startNode);
+
+
+
   }
+
+
+  private void createPointersLinkedList() {
+    Node temp = startNode;
+    addPointer(new Ptr(temp));
+    while(temp.getNext() != null) {
+      Node prev = temp;
+      temp = temp.getNext();
+      if (temp.getData() < prev.getData()) {
+        prev.setNext(null);
+        addPointer(new Ptr(temp));
+      }
+    }
+  }
+
+
+  private void addPointer(Ptr ptr) {
+    if (ptrStartNode == null) {
+      ptrStartNode = ptr;
+      ptrSize++;
+    } else {
+      System.out.println();
+      Ptr temp = ptrStartNode;
+      while (temp.next != null) {
+        temp = temp.next;
+      }
+      temp.next = ptr;
+      System.out.println(ptrSize);
+      ptrSize++;
+    }
+
+    System.out.println("printing linked list");
+    System.out.println("size: " + ptrSize);
+    printPtrLinkList(ptrStartNode);
+  }
+
 
   private void createPointersList() {
     Node temp = startNode;
@@ -108,7 +181,6 @@ public class NaturalLinkedMerge {
     }
     printPtrList(ptrsList);
   }
-
   //Recursive Approach for Merging Two Sorted List
   private Node mergeTwoListRecursive(Node leftStart, Node rightStart){
     if(leftStart==null)
@@ -117,7 +189,7 @@ public class NaturalLinkedMerge {
     if(rightStart==null)
       return leftStart;
 
-    Node temp=null;
+    Node temp;
 
     if(leftStart.getData()<rightStart.getData()){
       temp=leftStart;
@@ -133,6 +205,14 @@ public class NaturalLinkedMerge {
     Node temp = startNode;
     while(temp!=null){
       System.out.print(temp.getData() + " ");
+      temp = temp.getNext();
+    }
+  }
+
+  private void printPtrLinkList(Ptr startNode) {
+    Ptr temp = startNode;
+    while(temp!=null){
+      System.out.print(temp.getNode().getData() + " ");
       temp = temp.getNext();
     }
   }

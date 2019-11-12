@@ -38,95 +38,17 @@ public class NaturalLinkedMerge {
     node10.setNext(node11);
     node11.setNext(node12);
 
-//    Node node1 = new Node(1);
-//    Node node2 = new Node(3);
-//    Node node3 = new Node(5);
-//    Node node4 = new Node(7);
-//    Node node5 = new Node(8);
-//    Node node6 = new Node(22);
-//    Node node7 = new Node(35);
-//
-//    node1.setNext(node2);
-//    node2.setNext(node3);
-//    node3.setNext(node4);
-//    node4.setNext(node5);
-//    node5.setNext(node6);
-//    node6.setNext(node7);
-//
-//    Node otherList1 = new Node(2);
-//    Node otherList2 = new Node(3);
-//    Node otherList3 = new Node(9);
-//    Node otherList4 = new Node(88);
-//
-//    otherList1.setNext(otherList2);
-//    otherList2.setNext(otherList3);
-//    otherList3.setNext(otherList4);
-
     startNode = node1;
     ptrSize = 0;
 
-//    printLinkList(startNode);
-//    System.out.println();
-//    createPointersList();
-//
-//    System.out.println();
-//    System.out.println("zero node");
-//    printLinkList(ptrsList[0].getNode());
-//
-//
-//    System.out.println();
-//    System.out.println("one node");
-//    printLinkList(ptrsList[1].getNode());
-//
-//    System.out.println();
-//    System.out.println("two node");
-//    printLinkList(ptrsList[2].getNode());
-//
-//    System.out.println();
-//    System.out.println("three node");
-//    printLinkList(ptrsList[3].getNode());
-//
-//    System.out.println();
-//    System.out.println("REPRINT LIST");
-//    printLinkList(startNode);
-
-//    Node leftStart = node1;
-//    Node rightStart = otherList1;
-
-//    Node sortedStartNode = mergeSortLinkList(startNode);
-
-//    Node merged = mergeTwoListRecursive(leftStart, rightStart);
-//    printLinkList(merged);
-
-//    printLinkList(sortedStartNode);
-
-
-
-    printLinkList(startNode);
-
     createPointersLinkedList();
-    System.out.println("SIZE: " + ptrSize);
-    System.out.println();
-    System.out.println("zero node");
-    printLinkList(ptrStartNode.pointerTo(0, ptrSize, ptrStartNode).getNode());
-    System.out.println();
-    System.out.println("one node");
-    printLinkList(ptrStartNode.pointerTo(1, ptrSize, ptrStartNode).getNode());
+    Node sortedList = mergeSort(ptrStartNode);
+    System.out.println("\n\nfinal\n");
+    printLinkList(sortedList);
 
-    System.out.println();
-    System.out.println("two node");
-    printLinkList(ptrStartNode.pointerTo(2, ptrSize, ptrStartNode).getNode());
-
-    System.out.println();
-    System.out.println("three node");
-    printLinkList(ptrStartNode.pointerTo(3, ptrSize, ptrStartNode).getNode());
-
-    System.out.println();
-    System.out.println("REPRINT LIST");
-    printLinkList(startNode);
-
-
-
+//    Node sortedList = mergeSort();
+//    System.out.println("\n\nfinal\n");
+//    printLinkList(sortedList);
   }
 
 
@@ -143,25 +65,39 @@ public class NaturalLinkedMerge {
     }
   }
 
+  private Node mergeSort() {
+    Node x = ptrStartNode.pointerTo(0, ptrSize, ptrStartNode).getNode();
+    for (int i=1; i<ptrSize; i++) {
+      x = mergeTwoListRecursive(x, ptrStartNode.pointerTo(i, ptrSize, ptrStartNode).getNode());
+    }
+
+    return x;
+  }
+
+  private Node mergeSort(Ptr startPtr) {
+    if (startPtr == null || startPtr.getNext() == null) {
+      return startPtr.getNode();
+    }
+
+    Node left = startPtr.getNode();
+    Node right = startPtr.getNext().getNode();
+
+    Node sortedList = mergeTwoListRecursive(left, right);
+    return sortedList;
+  }
 
   private void addPointer(Ptr ptr) {
     if (ptrStartNode == null) {
       ptrStartNode = ptr;
       ptrSize++;
     } else {
-      System.out.println();
       Ptr temp = ptrStartNode;
       while (temp.next != null) {
         temp = temp.next;
       }
       temp.next = ptr;
-      System.out.println(ptrSize);
       ptrSize++;
     }
-
-    System.out.println("printing linked list");
-    System.out.println("size: " + ptrSize);
-    printPtrLinkList(ptrStartNode);
   }
 
 
@@ -179,7 +115,6 @@ public class NaturalLinkedMerge {
         ptrsList[i] = ptr;
       }
     }
-    printPtrList(ptrsList);
   }
   //Recursive Approach for Merging Two Sorted List
   private Node mergeTwoListRecursive(Node leftStart, Node rightStart){

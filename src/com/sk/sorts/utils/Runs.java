@@ -16,7 +16,6 @@ public class Runs {
 
   public static void processSorts(File runFile, int numberOfRuns, File inProcessFile, String outputDir, Scanner scanner) {
     FileName fileName = parseFileName(inProcessFile.getName());
-    System.out.println("FILENAME: " + inProcessFile.getName());
     int arraySize = fileName.getFileSize();
     System.out.println("Now processing: " + fileName.toString());
     writeFileLineByLine(runFile, "Now processing: " + fileName.toString());

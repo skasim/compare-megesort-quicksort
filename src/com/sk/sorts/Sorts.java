@@ -21,7 +21,7 @@ public class Sorts {
     File folder = new File(inputDir);
     File[] files = folder.listFiles();
 
-    int numberOfRuns = 3;
+    int numberOfRuns = 100;
     File runFile = new File(outputDir + "run_output.txt");
     writeFileLineByLine(runFile, "##################################################\n");
     writeFileLineByLine(runFile, "#    Lab4: Sorting Algorithms Run Time Analysis  #\n");

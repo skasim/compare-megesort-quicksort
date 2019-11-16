@@ -7,11 +7,11 @@
 
 #################################################
 
-PROCESSING: File [asc50.dat] sorted in [ascending] order of size [50]
- Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [345309]. 
+Now processing: File [asc50.dat] sorted in [ascending] order of size [50]
+ Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [345697]. 
 
-PROCESSING: File [ran50.dat] sorted in [random] order of size [50]
- Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [153259]. 
+Now processing: File [ran50.dat] sorted in [random] order of size [50]
+ Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [153349]. 
 
-PROCESSING: File [rev50.dat] sorted in [reverse] order of size [50]
- Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [153659]. 
+Now processing: File [rev50.dat] sorted in [reverse] order of size [50]
+ Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [132538]. 

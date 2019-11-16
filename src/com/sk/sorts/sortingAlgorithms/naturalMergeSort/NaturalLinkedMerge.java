@@ -2,10 +2,10 @@ package com.sk.sorts.sortingAlgorithms.naturalMergeSort;
 
 public class NaturalLinkedMerge {
 
-  Node startNode;
+  public Node startNode;
   Ptr[] ptrsList = new Ptr[100];
-  Ptr ptrStartNode;
-  int ptrSize;
+  public Ptr ptrStartNode;
+  public int ptrSize;
 
 
   public static void main(String[] args) {
@@ -71,7 +71,7 @@ public class NaturalLinkedMerge {
   }
 
 
-  private void createPointersLinkedList() {
+  public void createPointersLinkedList() {
     Node temp = startNode;
     addPointer(new Ptr(temp));
     while(temp.getNext() != null) {
@@ -84,7 +84,7 @@ public class NaturalLinkedMerge {
     }
   }
 
-  private Node mergeSort() {
+  public Node mergeSort() {
     Node sortedList = ptrStartNode.pointerTo(0, ptrSize, ptrStartNode).getNode();
     for (int i=1; i<ptrSize; i++) {
       sortedList = mergeTwoListRecursive(sortedList, ptrStartNode.pointerTo(i, ptrSize, ptrStartNode).getNode());
@@ -93,7 +93,7 @@ public class NaturalLinkedMerge {
     return sortedList;
   }
 
-  private Node mergeSort(Node sortedList, Ptr startPtr) {
+  public Node mergeSort(Node sortedList, Ptr startPtr) {
     if (startPtr == null|| startPtr.getNext() == null) {
       return sortedList;
     }
@@ -103,7 +103,7 @@ public class NaturalLinkedMerge {
     return sortedList;
   }
 
-  private void addNode(int data) {
+  public void addNode(int data) {
     Node node = new Node(data);
     if (startNode == null) {
       startNode = node;
@@ -165,7 +165,7 @@ public class NaturalLinkedMerge {
     return temp;
   }
 
-  private void printLinkList(Node startNode) {
+  public void printLinkList(Node startNode) {
     Node temp = startNode;
     while(temp!=null){
       System.out.print(temp.getData() + " ");

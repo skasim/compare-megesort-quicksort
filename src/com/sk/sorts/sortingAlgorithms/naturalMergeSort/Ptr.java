@@ -1,6 +1,6 @@
 package com.sk.sorts.sortingAlgorithms.naturalMergeSort;
 
-class Ptr {
+public class Ptr {
   Node node;
   Ptr next;
   int size;

@@ -1,6 +1,6 @@
 package com.sk.sorts.sortingAlgorithms.naturalMergeSort;
 
-class Node {
+public class Node {
   int data;
   Node next;
 

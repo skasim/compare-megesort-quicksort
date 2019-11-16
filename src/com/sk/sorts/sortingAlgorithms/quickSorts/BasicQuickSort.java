@@ -51,16 +51,16 @@ public class BasicQuickSort {
                                         int endIdx) {
 
     int idx = partition(array, startIdx, endIdx);
-    System.out.println("start index: " + startIdx);
-    System.out.println("end index: " + endIdx);
+//    System.out.println("start index: " + startIdx);
+//    System.out.println("end index: " + endIdx);
 
     if (endIdx - startIdx <= 1) {
-      System.out.println("1 index");
+//      System.out.println("1 index");
       return;
     }
 
     if (endIdx - startIdx == 2) {
-      System.out.println("2 index");
+//      System.out.println("2 index");
       if (array[startIdx] > array[endIdx]) {
         int temp = array[endIdx];
         array[endIdx] = array[startIdx];

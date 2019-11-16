@@ -1,0 +1,17 @@
+
+##################################################
+
+#    Lab4: Sorting Algorithms Run Time Analysis  #
+
+#    By: Samra Kasim                             #
+
+#################################################
+
+PROCESSING: File [asc50.dat] sorted in [ascending] order of size [50]
+ Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [345309]. 
+
+PROCESSING: File [ran50.dat] sorted in [random] order of size [50]
+ Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [153259]. 
+
+PROCESSING: File [rev50.dat] sorted in [reverse] order of size [50]
+ Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [153659]. 

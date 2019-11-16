@@ -24,8 +24,10 @@ public class ioUtils {
       if (count >= 0 && count <=2) {
         name += c;
       }
-      if (count == 3 || count == 4) {
-        fileSize += c;
+      if (count == 3 || count == 4 || count == 5) {
+        if (!String.valueOf(c).equals(".")) {
+          fileSize += c;
+        }
       }
       count ++;
     }
@@ -33,6 +35,11 @@ public class ioUtils {
     return fn;
   }
 
+
+  public static void main(String[] args) { //TODO DELETE
+    FileName fn = parseFileName("rev10k.dat");
+    System.out.println(fn.toString());
+  }
   /**
    * Helper method to take a File object representing the output file and return a BufferedWrite object.
    * @param outFile: String value representing the output file

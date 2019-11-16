@@ -15,15 +15,15 @@ public class FileName {
   private static int convertFileSizeToInt(String fileSize) {
     if (fileSize.equals("50")) {
       return 50;
-    } else if (fileSize.equals("1k")) {
+    } else if (fileSize.equals("1k") || fileSize.equals("1K")) {
       return 1000;
-    } else if (fileSize.equals("2k")) {
+    } else if (fileSize.equals("2k") || fileSize.equals("2K")) {
       return 2000;
-    } else if (fileSize.equals("5k")) {
+    } else if (fileSize.equals("5k") || fileSize.equals("5K")) {
       return 5000;
-    } else if (fileSize.equals("10k")) {
+    } else if (fileSize.equals("10k") || fileSize.equals("10K")) {
       return 10000;
-    } else if (fileSize.equals("20k")) {
+    } else if (fileSize.equals("20k") || fileSize.equals("20K")) {
       return 20000;
     }
     return 0;
@@ -36,6 +36,8 @@ public class FileName {
       return "random";
     } else if (fileName.equals("rev")) {
       return "reverse";
+    } else if (fileName.equals("dup")) {
+      return "duplicates";
     }
     return "null";
   }

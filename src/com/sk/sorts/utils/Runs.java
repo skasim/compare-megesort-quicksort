@@ -4,6 +4,7 @@ import com.sk.sorts.sortingAlgorithms.naturalMergeSort.NaturalLinkedMerge;
 import com.sk.sorts.sortingAlgorithms.naturalMergeSort.Node;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;  //TODO Delete
 import java.util.Scanner;
 
@@ -41,17 +42,17 @@ public class Runs {
       System.out.println(Arrays.toString(origArray));
     }
 
-//    // Quicksort with first item as pivot and partitions of size one and two as stopping cases
-//    basicQuickSortRuns(runFile, sortedOutputFile, numberOfRuns, origArray, arraySize);
-//
-//    // Quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish
-//    optimizedQuickSortRuns(runFile, sortedOutputFile, numberOfRuns, origArray, arraySize, 100);
-//
-//    // Quicksort with first item as pivot, 50 ass stopping case, and insertion sort to finish
-//    optimizedQuickSortRuns(runFile, sortedOutputFile, numberOfRuns, origArray, arraySize, 50);
-//
-//    // Quicksort with median-of-three as pivot and partitions of size one and two as stopping cases
-//    medianOf3QuickSortRuns(runFile, sortedOutputFile, numberOfRuns, origArray, arraySize);
+    // Quicksort with first item as pivot and partitions of size one and two as stopping cases
+    basicQuickSortRuns(runFile, sortedOutputFile, numberOfRuns, origArray, arraySize);
+
+    // Quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish
+    optimizedQuickSortRuns(runFile, sortedOutputFile, numberOfRuns, origArray, arraySize, 100);
+
+    // Quicksort with first item as pivot, 50 ass stopping case, and insertion sort to finish
+    optimizedQuickSortRuns(runFile, sortedOutputFile, numberOfRuns, origArray, arraySize, 50);
+
+    // Quicksort with median-of-three as pivot and partitions of size one and two as stopping cases
+    medianOf3QuickSortRuns(runFile, sortedOutputFile, numberOfRuns, origArray, arraySize);
 
     // Natural merge sort with linked list
     naturalLinkedMergeSortRuns(runFile, sortedOutputFile, numberOfRuns, origArray, arraySize);
@@ -162,12 +163,24 @@ public class Runs {
       linkedMerge.createPointersLinkedList();
       Node sl = linkedMerge.ptrStartNode.getNode();
       Node sortedList = linkedMerge.mergeSort(sl, linkedMerge.ptrStartNode);
-      System.out.println("\n\nfinal\n");
+      int[] sortedArray = linkedMerge.printLinkList(sortedList, arraySize);
 
-      linkedMerge.printLinkList(sortedList);
+      // If array size is 50 then print the sorted array to an output file
+      if (arraySize == 50 && !isPrinted) {
+        writeFileLineByLine(sortedOutputFile, "Sorted output: ");
+        writeArray(sortedOutputFile, sortedArray, arraySize);
+        System.out.println("Sorted output:" + Arrays.toString(sortedArray));
+        isPrinted = true;
+      }
       runCount++;
     }
-    System.out.println();
+    long endNaturalSort = System.nanoTime();
+    long totalTimeNaturalSort = (endNaturalSort - beginNaturalSort) / numberOfRuns;
+
+    System.out.println("Total sort run time: " + totalTimeNaturalSort +"\n");
+    writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeNaturalSort + "\n");
+    writeFileLineByLine(runFile, "  Run time of natural merge sort using a linked list is [" + totalTimeNaturalSort + "]. \n");
+
   }
 
 }

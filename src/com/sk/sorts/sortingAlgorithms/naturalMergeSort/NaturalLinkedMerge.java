@@ -22,12 +22,12 @@ public class NaturalLinkedMerge {
     linkedMerge.addNode(1);
     linkedMerge.addNode(4);
     linkedMerge.addNode(15);
-    linkedMerge.printLinkList(linkedMerge.startNode);
+//    linkedMerge.printLinkList(linkedMerge.startNode);
     linkedMerge.createPointersLinkedList();
     Node sl = linkedMerge.ptrStartNode.getNode();
     Node sortedList = linkedMerge.mergeSort(sl, linkedMerge.ptrStartNode);
     System.out.println("\n\nfinal\n");
-    linkedMerge.printLinkList(sortedList);
+//    linkedMerge.printLinkList(sortedList);
   }
 
   public NaturalLinkedMerge() {
@@ -165,12 +165,17 @@ public class NaturalLinkedMerge {
     return temp;
   }
 
-  public void printLinkList(Node startNode) {
+  public int[] printLinkList(Node startNode, int arraySize) {
+    int[] outputArr = new int[arraySize];
     Node temp = startNode;
+    int count = 0;
     while(temp!=null){
-      System.out.print(temp.getData() + " ");
+//      System.out.print(temp.getData() + " ");
+      outputArr[count] = temp.getData();
       temp = temp.getNext();
+      count++;
     }
+    return outputArr;
   }
 
   private void printPtrLinkList(Ptr startNode) {

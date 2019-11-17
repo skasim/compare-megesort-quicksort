@@ -4,7 +4,6 @@ import com.sk.sorts.sortingAlgorithms.naturalMergeSort.NaturalLinkedMerge;
 import com.sk.sorts.sortingAlgorithms.naturalMergeSort.Node;
 
 import java.io.File;
-import java.util.Arrays;  //TODO Delete
 import java.util.Scanner;
 
 import static com.sk.sorts.sortingAlgorithms.quickSorts.BasicQuickSort.basicQuickSort;
@@ -33,7 +32,11 @@ public class Runs {
     File sortedOutputFile = new File(outputDir + "out_" + fileName.getOriginalFileName());
 
     if (arraySize == 50) {
-      writeFileLineByLine(sortedOutputFile, "Input: "+ fileName.toString());
+      writeFileLineByLine(sortedOutputFile, "##############################################################################\n");
+      writeFileLineByLine(sortedOutputFile, "Sorting " + fileName.toString());
+      writeFileLineByLine(sortedOutputFile, "By: Samra Kasim");
+      writeFileLineByLine(sortedOutputFile, "###############################################################################\n");
+      writeFileLineByLine(sortedOutputFile, "Input: ");
       writeArray(sortedOutputFile, origArray, arraySize);
       writeFileLineByLine(sortedOutputFile, " ");
     }
@@ -82,7 +85,7 @@ public class Runs {
     if (arraySize == 50) {
       writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeQuickSort + "\n");
     }
-    writeFileLineByLine(runFile, "  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [" + totalTimeQuickSort + "]. \n");
+    writeFileLineByLine(runFile, "  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [" + totalTimeQuickSort + " ns]. \n");
   }
 
   private static void optimizedQuickSortRuns(File runFile, File sortedOutputFile, int numberOfRuns, int[] origArray, int arraySize, int stoppingCase) {
@@ -112,7 +115,7 @@ public class Runs {
     if (arraySize == 50) {
       writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeQuickSort + "\n");
     }
-    writeFileLineByLine(runFile, "  Run time of quicksort with first item as pivot, " + stoppingCase + " as stopping case, and insertion sort to finish is [" + totalTimeQuickSort + "]. \n");
+    writeFileLineByLine(runFile, "  Run time of quicksort with first item as pivot, " + stoppingCase + " as stopping case, and insertion sort to finish is [" + totalTimeQuickSort + " ns]. \n");
   }
 
   private static void medianOf3QuickSortRuns(File runFile, File sortedOutputFile, int numberOfRuns, int[] origArray, int arraySize) {
@@ -142,7 +145,7 @@ public class Runs {
     if (arraySize == 50) {
       writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeQuickSort + "\n");
     }
-    writeFileLineByLine(runFile, "  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [" + totalTimeQuickSort + "]. \n");
+    writeFileLineByLine(runFile, "  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [" + totalTimeQuickSort + " ns]. \n");
   }
 
   public static void naturalLinkedMergeSortRuns(File runFile, File sortedOutputFile, int numberOfRuns, int[] origArray, int arraySize) {
@@ -178,7 +181,7 @@ public class Runs {
     if (arraySize == 50) {
       writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeNaturalSort + "\n");
     }
-    writeFileLineByLine(runFile, "  Run time of natural merge sort using a linked list is [" + totalTimeNaturalSort + "]. \n");
+    writeFileLineByLine(runFile, "  Run time of natural merge sort using a linked list is [" + totalTimeNaturalSort + " ns]. \n");
 
   }
 

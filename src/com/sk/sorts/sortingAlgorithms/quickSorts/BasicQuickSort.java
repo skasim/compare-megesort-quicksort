@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 
 /**
- * Java program to Sort integer array using QuickSortMultiTry algorithm using recursion.
- * Recursive QuickSortMultiTry algorithm, partitioned list into two parts by a pivot,
+ * Java program to Sort integer array using QuickSort algorithm using recursion.
+ * Recursive QuickSort algorithm, partitioned list into two parts by a pivot,
  * and then recursively sorts each list.
  * @author Javin Paul
  */
@@ -32,7 +32,7 @@ public class BasicQuickSort {
   }
 
   /**
-   * public method exposed to client, sorts given array using QuickSortMultiTry
+   * public method exposed to client, sorts given array using QuickSort
    * Algorithm in Java
    * @param array
    */
@@ -51,16 +51,12 @@ public class BasicQuickSort {
                                         int endIdx) {
 
     int idx = partition(array, startIdx, endIdx);
-//    System.out.println("start index: " + startIdx);
-//    System.out.println("end index: " + endIdx);
 
     if (endIdx - startIdx <= 1) {
-//      System.out.println("1 index");
       return;
     }
 
     if (endIdx - startIdx == 2) {
-//      System.out.println("2 index");
       if (array[startIdx] > array[endIdx]) {
         int temp = array[endIdx];
         array[endIdx] = array[startIdx];
@@ -73,17 +69,6 @@ public class BasicQuickSort {
 
     // Recursively call quicksort with right part of the partitioned array
     recursiveQuickSort(array, idx, endIdx);
-
-
-//    // Recursively call quicksort with left part of the partitioned array
-//    if (startIdx < idx - 1) {
-//      recursiveQuickSort(array, startIdx, idx - 1);
-//    }
-//
-//    // Recursively call quick sort with right part of the partitioned array
-//    if (endIdx > idx) {
-//      recursiveQuickSort(array, idx, endIdx);
-//    }
   }
 
   /**

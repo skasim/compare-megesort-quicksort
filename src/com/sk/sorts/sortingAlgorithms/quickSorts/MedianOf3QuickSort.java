@@ -2,6 +2,12 @@ package com.sk.sorts.sortingAlgorithms.quickSorts;
 
 import java.util.Arrays;
 
+/**
+ * Class that uses median-of-three partition to sort an array. The partition code is
+ *
+ * @author Rohit Joshi https://examples.javacodegeeks.com/core-java/quicksort-algorithm-in-java-code-example/
+ *
+ */
 public class MedianOf3QuickSort {
   // TODO https://examples.javacodegeeks.com/core-java/quicksort-algorithm-in-java-code-example/
 

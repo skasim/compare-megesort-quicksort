@@ -116,7 +116,6 @@ public class OptimizedQuickSort {
       }
       // Note that subarray arr[j..i-1] is shifted to
       // the right by one position i.e. arr[j+1..i]
-
       arr[j] = value;
     }
   }

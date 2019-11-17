@@ -10,7 +10,7 @@ import static com.sk.sorts.utils.ioUtils.*;
 public class Sorts {
 
   public static void main(String[] args) {
-    // Check if input and output directories are provided. If not, exit program execution.
+    // Check if input and output directories and run filename are provided. If not, exit program execution.
     if (args.length != 3) {
       System.err.println("Input and output file paths must be provided to run this simulation. Exiting now.");
       System.exit(1);
@@ -27,11 +27,12 @@ public class Sorts {
     writeFileLineByLine(runFile, "##################################################\n");
     writeFileLineByLine(runFile, "#    Lab4: Sorting Algorithms Run Time Analysis  #\n");
     writeFileLineByLine(runFile, "#    By: Samra Kasim                             #\n");
-    writeFileLineByLine(runFile, "#################################################\n");
-
+    writeFileLineByLine(runFile, "##################################################\n");
+    System.out.println("Beginning processing...");
     for (File file : files) {
       if (file.isFile() && !file.getName().equals(".DS_Store")) {
         try {
+          System.out.println("  "+ file.getName() +"...");
           Scanner scanner = new Scanner(file);
           processSorts(runFile, numberOfRuns, file, outputDir, scanner);
         } catch (FileNotFoundException e) {
@@ -40,6 +41,7 @@ public class Sorts {
 
       }
     }
+    System.out.println("Processing complete.");
   }
 
 

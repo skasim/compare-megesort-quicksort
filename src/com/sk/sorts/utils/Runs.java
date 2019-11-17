@@ -17,7 +17,6 @@ public class Runs {
   public static void processSorts(File runFile, int numberOfRuns, File inProcessFile, String outputDir, Scanner scanner) {
     FileName fileName = parseFileName(inProcessFile.getName());
     int arraySize = fileName.getFileSize();
-    System.out.println("Now processing: " + fileName.toString());
     writeFileLineByLine(runFile, "Now processing: " + fileName.toString());
 
     int[] origArray = new int[arraySize];
@@ -32,14 +31,11 @@ public class Runs {
 
 
     File sortedOutputFile = new File(outputDir + "out_" + fileName.getOriginalFileName());
-    System.out.println("sorted output file: " + sortedOutputFile.getName());
 
     if (arraySize == 50) {
       writeFileLineByLine(sortedOutputFile, "Input: "+ fileName.toString());
       writeArray(sortedOutputFile, origArray, arraySize);
       writeFileLineByLine(sortedOutputFile, " ");
-      System.out.println("Input: " + fileName.toString());
-      System.out.println(Arrays.toString(origArray));
     }
 
     // Quicksort with first item as pivot and partitions of size one and two as stopping cases
@@ -60,7 +56,6 @@ public class Runs {
 
 
   private static void basicQuickSortRuns(File runFile, File sortedOutputFile, int numberOfRuns, int[] origArray, int arraySize) {
-    System.out.println("Algorithm type applied: Quicksort with first item as pivot and partitions of size one and two as stopping cases.");
     if (arraySize == 50) {
       writeFileLineByLine(sortedOutputFile, "Algorithm type applied: Quicksort with first item as pivot and partitions of size one and two as stopping cases.");
     }
@@ -76,7 +71,6 @@ public class Runs {
         if (arraySize == 50 && !isPrinted) {
           writeFileLineByLine(sortedOutputFile, "Sorted output: ");
           writeArray(sortedOutputFile, arrayCopy, arraySize);
-          System.out.println("Sorted output:" + Arrays.toString(arrayCopy));
           isPrinted = true;
         }
       }
@@ -85,7 +79,6 @@ public class Runs {
     long endQuickSort = System.nanoTime();
     long totalTimeQuickSort = (endQuickSort - beginQuickSort)/numberOfRuns;
 
-    System.out.println("Total sort run time: " + totalTimeQuickSort +"\n");
     if (arraySize == 50) {
       writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeQuickSort + "\n");
     }
@@ -93,7 +86,6 @@ public class Runs {
   }
 
   private static void optimizedQuickSortRuns(File runFile, File sortedOutputFile, int numberOfRuns, int[] origArray, int arraySize, int stoppingCase) {
-    System.out.println("Algorithm type applied: Quicksort with first item as pivot, " + stoppingCase + " as stopping case, and insertion sort to finish.");
     if (arraySize == 50) {
       writeFileLineByLine(sortedOutputFile, "Algorithm type applied: Quicksort with first item as pivot, " + stoppingCase + " as stopping case, and insertion sort to finish.");
     }
@@ -109,7 +101,6 @@ public class Runs {
         if (arraySize == 50 && !isPrinted) {
           writeFileLineByLine(sortedOutputFile, "Sorted output: ");
           writeArray(sortedOutputFile, arrayCopy, arraySize);
-          System.out.println("Sorted output:" + Arrays.toString(arrayCopy));
           isPrinted = true;
         }
       }
@@ -118,7 +109,6 @@ public class Runs {
     long endQuickSort = System.nanoTime();
     long totalTimeQuickSort = (endQuickSort - beginQuickSort)/numberOfRuns;
 
-    System.out.println("Total sort run time: " + totalTimeQuickSort +"\n");
     if (arraySize == 50) {
       writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeQuickSort + "\n");
     }
@@ -126,7 +116,6 @@ public class Runs {
   }
 
   private static void medianOf3QuickSortRuns(File runFile, File sortedOutputFile, int numberOfRuns, int[] origArray, int arraySize) {
-    System.out.println("Algorithm type applied: Quicksort with median-of-three as pivot and partitions of size one and two as stopping cases.");
     if (arraySize == 50) {
       writeFileLineByLine(sortedOutputFile, "Algorithm type applied: Quicksort with median-of-three as pivot and partitions of size one and two as stopping cases.");
     }
@@ -142,7 +131,6 @@ public class Runs {
         if (arraySize == 50 && !isPrinted) {
           writeFileLineByLine(sortedOutputFile, "Sorted output: ");
           writeArray(sortedOutputFile, arrayCopy, arraySize);
-          System.out.println("Sorted output:" + Arrays.toString(arrayCopy));
           isPrinted = true;
         }
       }
@@ -150,7 +138,6 @@ public class Runs {
     }
     long endQuickSort = System.nanoTime();
     long totalTimeQuickSort = (endQuickSort - beginQuickSort)/numberOfRuns;
-    System.out.println("Total sort run time: " + totalTimeQuickSort + "\n");
 
     if (arraySize == 50) {
       writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeQuickSort + "\n");
@@ -159,7 +146,6 @@ public class Runs {
   }
 
   public static void naturalLinkedMergeSortRuns(File runFile, File sortedOutputFile, int numberOfRuns, int[] origArray, int arraySize) {
-    System.out.println("Algorithm type applied: Natural Merge Sort using a linked list.");
     if (arraySize == 50) {
       writeFileLineByLine(sortedOutputFile, "Algorithm type applied: Natural Merge Sort using a linked list.");
     }
@@ -182,7 +168,6 @@ public class Runs {
       if (arraySize == 50 && !isPrinted) {
         writeFileLineByLine(sortedOutputFile, "Sorted output: ");
         writeArray(sortedOutputFile, sortedArray, arraySize);
-        System.out.println("Sorted output:" + Arrays.toString(sortedArray));
         isPrinted = true;
       }
       runCount++;
@@ -190,7 +175,6 @@ public class Runs {
     long endNaturalSort = System.nanoTime();
     long totalTimeNaturalSort = (endNaturalSort - beginNaturalSort) / numberOfRuns;
 
-    System.out.println("Total sort run time: " + totalTimeNaturalSort +"\n");
     if (arraySize == 50) {
       writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeNaturalSort + "\n");
     }

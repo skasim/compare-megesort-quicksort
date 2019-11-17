@@ -34,6 +34,11 @@ public class NaturalLinkedMerge {
     ptrSize = 0;
   }
 
+  public static Node naturalMergeSort(NaturalLinkedMerge linkedMerge) {
+    linkedMerge.createPointersLinkedList();
+    Node sortedList = linkedMerge.mergeSort();
+    return sortedList;
+  }
 
   public void createPointersLinkedList() {
     Node temp = startNode;

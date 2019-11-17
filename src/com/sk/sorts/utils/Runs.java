@@ -4,8 +4,10 @@ import com.sk.sorts.sortingAlgorithms.naturalMergeSort.NaturalLinkedMerge;
 import com.sk.sorts.sortingAlgorithms.naturalMergeSort.Node;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.Scanner;
 
+import static com.sk.sorts.sortingAlgorithms.naturalMergeSort.NaturalLinkedMerge.naturalMergeSort;
 import static com.sk.sorts.sortingAlgorithms.quickSorts.BasicQuickSort.basicQuickSort;
 import static com.sk.sorts.sortingAlgorithms.quickSorts.MedianOf3QuickSort.medianOf3QuickSort;
 import static com.sk.sorts.sortingAlgorithms.quickSorts.OptimizedQuickSort.optimizedQuickSort;
@@ -13,7 +15,7 @@ import static com.sk.sorts.utils.ioUtils.*;
 
 public class Runs {
 
-  public static void processSorts(File runFile, int numberOfRuns, File inProcessFile, String outputDir, Scanner scanner) {
+  public static void processSorts(File runFile, int numberOfRuns, File inProcessFile, String outputDir, Scanner scanner, File csvFile) {
     FileName fileName = parseFileName(inProcessFile.getName());
     int arraySize = fileName.getFileSize();
     writeFileLineByLine(runFile, fileName.toString());
@@ -42,23 +44,23 @@ public class Runs {
     }
 
     // Quicksort with first item as pivot and partitions of size one and two as stopping cases
-    basicQuickSortRuns(runFile, sortedOutputFile, numberOfRuns, origArray, arraySize);
+    basicQuickSortRuns(runFile, sortedOutputFile, numberOfRuns, origArray, arraySize, csvFile, fileName);
 
     // Quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish
-    optimizedQuickSortRuns(runFile, sortedOutputFile, numberOfRuns, origArray, arraySize, 100);
+    optimizedQuickSortRuns(runFile, sortedOutputFile, numberOfRuns, origArray, arraySize, 100, csvFile, fileName);
 
     // Quicksort with first item as pivot, 50 ass stopping case, and insertion sort to finish
-    optimizedQuickSortRuns(runFile, sortedOutputFile, numberOfRuns, origArray, arraySize, 50);
+    optimizedQuickSortRuns(runFile, sortedOutputFile, numberOfRuns, origArray, arraySize, 50, csvFile, fileName);
 
     // Quicksort with median-of-three as pivot and partitions of size one and two as stopping cases
-    medianOf3QuickSortRuns(runFile, sortedOutputFile, numberOfRuns, origArray, arraySize);
+    medianOf3QuickSortRuns(runFile, sortedOutputFile, numberOfRuns, origArray, arraySize, csvFile, fileName);
 
     // Natural merge sort with linked list
-    naturalLinkedMergeSortRuns(runFile, sortedOutputFile, numberOfRuns, origArray, arraySize);
+    naturalLinkedMergeSortRuns(runFile, sortedOutputFile, numberOfRuns, origArray, arraySize, csvFile, fileName);
   }
 
 
-  private static void basicQuickSortRuns(File runFile, File sortedOutputFile, int numberOfRuns, int[] origArray, int arraySize) {
+  private static void basicQuickSortRuns(File runFile, File sortedOutputFile, int numberOfRuns, int[] origArray, int arraySize, File csvFile, FileName fileName) {
     if (arraySize == 50) {
       writeFileLineByLine(sortedOutputFile, "Algorithm type applied: Quicksort with first item as pivot and partitions of size one and two as stopping cases.");
     }
@@ -81,17 +83,16 @@ public class Runs {
       runCount++;
       totalTime = totalTime + (end - begin);
     }
-    System.out.println(totalTime);
-
     long totalTimeQuickSort = (totalTime)/numberOfRuns;
 
     if (arraySize == 50) {
       writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeQuickSort + " ns \n");
     }
     writeFileLineByLine(runFile, "  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [" + totalTimeQuickSort + " ns]. \n");
+    writeFileLineByLine(csvFile, fileName.getFileName() + ";" + fileName.getFileSize() + ";" + totalTimeQuickSort);
   }
 
-  private static void optimizedQuickSortRuns(File runFile, File sortedOutputFile, int numberOfRuns, int[] origArray, int arraySize, int stoppingCase) {
+  private static void optimizedQuickSortRuns(File runFile, File sortedOutputFile, int numberOfRuns, int[] origArray, int arraySize, int stoppingCase, File csvFile, FileName fileName) {
     if (arraySize == 50) {
       writeFileLineByLine(sortedOutputFile, "Algorithm type applied: Quicksort with first item as pivot, " + stoppingCase + " as stopping case, and insertion sort to finish.");
     }
@@ -121,9 +122,10 @@ public class Runs {
       writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeQuickSort + " ns \n");
     }
     writeFileLineByLine(runFile, "  Run time of quicksort with first item as pivot, " + stoppingCase + " as stopping case, and insertion sort to finish is [" + totalTimeQuickSort + " ns]. \n");
+    writeFileLineByLine(csvFile, fileName.getFileName() + ";" + fileName.getFileSize() + ";" + totalTimeQuickSort);
   }
 
-  private static void medianOf3QuickSortRuns(File runFile, File sortedOutputFile, int numberOfRuns, int[] origArray, int arraySize) {
+  private static void medianOf3QuickSortRuns(File runFile, File sortedOutputFile, int numberOfRuns, int[] origArray, int arraySize, File csvFile, FileName fileName) {
     if (arraySize == 50) {
       writeFileLineByLine(sortedOutputFile, "Algorithm type applied: Quicksort with median-of-three as pivot and partitions of size one and two as stopping cases.");
     }
@@ -152,9 +154,10 @@ public class Runs {
       writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeQuickSort + " ns \n");
     }
     writeFileLineByLine(runFile, "  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [" + totalTimeQuickSort + " ns]. \n");
+    writeFileLineByLine(csvFile, fileName.getFileName() + ";" + fileName.getFileSize() + ";" + totalTimeQuickSort);
   }
 
-  public static void naturalLinkedMergeSortRuns(File runFile, File sortedOutputFile, int numberOfRuns, int[] origArray, int arraySize) {
+  public static void naturalLinkedMergeSortRuns(File runFile, File sortedOutputFile, int numberOfRuns, int[] origArray, int arraySize, File csvFile, FileName fileName) {
     if (arraySize == 50) {
       writeFileLineByLine(sortedOutputFile, "Algorithm type applied: Natural Merge Sort using a linked list.");
     }
@@ -170,8 +173,9 @@ public class Runs {
         linkedMerge.addNode(arrayCopy[i]);
       }
       long begin = System.nanoTime();
-      linkedMerge.createPointersLinkedList();
-      Node sortedList = linkedMerge.mergeSort();
+//      linkedMerge.createPointersLinkedList();
+//      Node sortedList = linkedMerge.mergeSort();
+      Node sortedList = naturalMergeSort(linkedMerge);
       long end = System.nanoTime();
       int[] sortedArray = linkedMerge.printLinkList(sortedList, arraySize);
 
@@ -190,6 +194,7 @@ public class Runs {
       writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeNaturalSort + " ns\n");
     }
     writeFileLineByLine(runFile, "  Run time of natural merge sort using a linked list is [" + totalTimeNaturalSort + " ns]. \n");
+    writeFileLineByLine(csvFile, fileName.getFileName() + ";" + fileName.getFileSize() + ";" + totalTimeNaturalSort);
 
   }
 

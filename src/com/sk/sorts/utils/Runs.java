@@ -16,7 +16,7 @@ public class Runs {
   public static void processSorts(File runFile, int numberOfRuns, File inProcessFile, String outputDir, Scanner scanner) {
     FileName fileName = parseFileName(inProcessFile.getName());
     int arraySize = fileName.getFileSize();
-    writeFileLineByLine(runFile, "Now processing: " + fileName.toString());
+    writeFileLineByLine(runFile, fileName.toString());
 
     int[] origArray = new int[arraySize];
     int elemCount = 0;
@@ -64,26 +64,29 @@ public class Runs {
     }
 
     int runCount = 0;
-    long beginQuickSort = System.nanoTime();
+    long totalTime = 0;
     boolean isPrinted = false;
+
     while (runCount < numberOfRuns) {
       int[] arrayCopy = deepCopyArray(origArray, arraySize);
+      long begin = System.nanoTime();
       basicQuickSort(arrayCopy);
-      if (!isPrinted) {
+      long end = System.nanoTime();
+      if (arraySize == 50 && !isPrinted) {
         // If array size is 50 then print the sorted array to an output file
-        if (arraySize == 50 && !isPrinted) {
-          writeFileLineByLine(sortedOutputFile, "Sorted output: ");
-          writeArray(sortedOutputFile, arrayCopy, arraySize);
-          isPrinted = true;
-        }
+        writeFileLineByLine(sortedOutputFile, "Sorted output: ");
+        writeArray(sortedOutputFile, arrayCopy, arraySize);
+        isPrinted = true;
       }
       runCount++;
+      totalTime = totalTime + (end - begin);
     }
-    long endQuickSort = System.nanoTime();
-    long totalTimeQuickSort = (endQuickSort - beginQuickSort)/numberOfRuns;
+    System.out.println(totalTime);
+
+    long totalTimeQuickSort = (totalTime)/numberOfRuns;
 
     if (arraySize == 50) {
-      writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeQuickSort + "\n");
+      writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeQuickSort + " ns \n");
     }
     writeFileLineByLine(runFile, "  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [" + totalTimeQuickSort + " ns]. \n");
   }
@@ -94,26 +97,28 @@ public class Runs {
     }
 
     int runCount = 0;
-    long beginQuickSort = System.nanoTime();
+    long totalTime = 0;
     boolean isPrinted = false;
+
     while (runCount < numberOfRuns) {
       int[] arrayCopy = deepCopyArray(origArray, arraySize);
+      long begin = System.nanoTime();
       optimizedQuickSort(arrayCopy, stoppingCase);
-      if (!isPrinted) {
+      long end = System.nanoTime();
+      if ( arraySize == 50 && !isPrinted) {
         // If array size is 50 then print the sorted array to an output file
-        if (arraySize == 50 && !isPrinted) {
-          writeFileLineByLine(sortedOutputFile, "Sorted output: ");
-          writeArray(sortedOutputFile, arrayCopy, arraySize);
-          isPrinted = true;
-        }
+        writeFileLineByLine(sortedOutputFile, "Sorted output: ");
+        writeArray(sortedOutputFile, arrayCopy, arraySize);
+        isPrinted = true;
+
       }
       runCount++;
+      totalTime = totalTime + (end - begin);
     }
-    long endQuickSort = System.nanoTime();
-    long totalTimeQuickSort = (endQuickSort - beginQuickSort)/numberOfRuns;
+    long totalTimeQuickSort = (totalTime)/numberOfRuns;
 
     if (arraySize == 50) {
-      writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeQuickSort + "\n");
+      writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeQuickSort + " ns \n");
     }
     writeFileLineByLine(runFile, "  Run time of quicksort with first item as pivot, " + stoppingCase + " as stopping case, and insertion sort to finish is [" + totalTimeQuickSort + " ns]. \n");
   }
@@ -124,26 +129,27 @@ public class Runs {
     }
 
     int runCount = 0;
-    long beginQuickSort = System.nanoTime();
+    long totalTime = 0;
     boolean isPrinted = false;
+
     while (runCount < 1) {
       int[] arrayCopy = deepCopyArray(origArray, arraySize);
+      long begin = System.nanoTime();
       medianOf3QuickSort(arrayCopy);
-      if (!isPrinted) {
+      long end = System.nanoTime();
+      if (arraySize == 50 && !isPrinted) {
         // If array size is 50 then print the sorted array to an output file
-        if (arraySize == 50 && !isPrinted) {
-          writeFileLineByLine(sortedOutputFile, "Sorted output: ");
-          writeArray(sortedOutputFile, arrayCopy, arraySize);
-          isPrinted = true;
-        }
+        writeFileLineByLine(sortedOutputFile, "Sorted output: ");
+        writeArray(sortedOutputFile, arrayCopy, arraySize);
+        isPrinted = true;
       }
       runCount++;
+      totalTime = totalTime + (end - begin);
     }
-    long endQuickSort = System.nanoTime();
-    long totalTimeQuickSort = (endQuickSort - beginQuickSort)/numberOfRuns;
+    long totalTimeQuickSort = (totalTime)/numberOfRuns;
 
     if (arraySize == 50) {
-      writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeQuickSort + "\n");
+      writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeQuickSort + " ns \n");
     }
     writeFileLineByLine(runFile, "  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [" + totalTimeQuickSort + " ns]. \n");
   }
@@ -154,7 +160,7 @@ public class Runs {
     }
 
     int runCount = 0;
-    long beginNaturalSort = System.nanoTime();
+    long totalTime = 0;
     boolean isPrinted = false;
 
     while (runCount < numberOfRuns) {
@@ -163,8 +169,10 @@ public class Runs {
       for (int i=0; i<arraySize; i++) {
         linkedMerge.addNode(arrayCopy[i]);
       }
+      long begin = System.nanoTime();
       linkedMerge.createPointersLinkedList();
       Node sortedList = linkedMerge.mergeSort();
+      long end = System.nanoTime();
       int[] sortedArray = linkedMerge.printLinkList(sortedList, arraySize);
 
       // If array size is 50 then print the sorted array to an output file
@@ -174,12 +182,12 @@ public class Runs {
         isPrinted = true;
       }
       runCount++;
+      totalTime = totalTime + (end - begin);
     }
-    long endNaturalSort = System.nanoTime();
-    long totalTimeNaturalSort = (endNaturalSort - beginNaturalSort) / numberOfRuns;
+    long totalTimeNaturalSort = (totalTime) / numberOfRuns;
 
     if (arraySize == 50) {
-      writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeNaturalSort + "\n");
+      writeFileLineByLine(sortedOutputFile, "Total sort run time: " + totalTimeNaturalSort + " ns\n");
     }
     writeFileLineByLine(runFile, "  Run time of natural merge sort using a linked list is [" + totalTimeNaturalSort + " ns]. \n");
 

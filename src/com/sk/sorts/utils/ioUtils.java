@@ -35,11 +35,6 @@ public class ioUtils {
     return fn;
   }
 
-
-  public static void main(String[] args) { //TODO DELETE
-    FileName fn = parseFileName("rev10k.dat");
-    System.out.println(fn.toString());
-  }
   /**
    * Helper method to take a File object representing the output file and return a BufferedWrite object.
    * @param outFile: String value representing the output file

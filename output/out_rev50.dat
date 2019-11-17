@@ -11,24 +11,24 @@ Input:
 Algorithm type applied: Quicksort with first item as pivot and partitions of size one and two as stopping cases.
 Sorted output: 
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 
-Total sort run time: 2343 ns 
+Total sort run time: 1142 ns 
 
 Algorithm type applied: Quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish.
 Sorted output: 
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 
-Total sort run time: 5629 ns 
+Total sort run time: 1063 ns 
 
 Algorithm type applied: Quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish.
 Sorted output: 
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 
-Total sort run time: 2215 ns 
+Total sort run time: 1052 ns 
 
 Algorithm type applied: Quicksort with median-of-three as pivot and partitions of size one and two as stopping cases.
 Sorted output: 
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 
-Total sort run time: 1071 ns 
+Total sort run time: 225 ns 
 
 Algorithm type applied: Natural Merge Sort using a linked list.
 Sorted output: 
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 
-Total sort run time: 8955 ns
+Total sort run time: 2409 ns

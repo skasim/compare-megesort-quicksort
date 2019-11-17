@@ -11,7 +11,7 @@ public class Sorts {
 
   public static void main(String[] args) {
     // Check if input and output directories and run filename are provided. If not, exit program execution.
-    if (args.length != 3) {
+    if (args.length != 4) {
       System.err.println("Input and output file paths must be provided to run this simulation. Exiting now.");
       System.exit(1);
     }
@@ -19,21 +19,22 @@ public class Sorts {
     String inputDir = args[0];
     String outputDir = args[1];
     String runFilename = args[2];
+    int numberOfRuns = Integer.parseInt(args[3]);
     String csvRunFilename = runFilename + ".csv";
     File folder = new File(inputDir);
     File[] files = folder.listFiles();
 
-    int numberOfRuns = 3;
+
     File runFile = new File(outputDir + runFilename);
     File csvFile = new File(outputDir + csvRunFilename);
-    writeFileLineByLine(runFile, "##################################################\n");
+    writeFileLineByLine(runFile, "#######################################################################\n");
     writeFileLineByLine(runFile, "    Lab4: Sorting Algorithms Run Time Analysis    \n");
-    writeFileLineByLine(runFile, "          Using Recursive Sorts with " + numberOfRuns+"\n");
+    writeFileLineByLine(runFile, "          Using Recursive Sorts And Averaging " + numberOfRuns+" Runs Per Algorithm\n");
     writeFileLineByLine(runFile, "    By: Samra Kasim                                \n");
-    writeFileLineByLine(runFile, "##################################################\n");
+    writeFileLineByLine(runFile, "#######################################################################\n");
 
     writeFileLineByLine(csvFile, "Run Time CSV File By Samra Kasim");
-    writeFileLineByLine(csvFile, "order;size;time");
+    writeFileLineByLine(csvFile, "order,size,time,algorithm");
 
     System.out.println("Beginning processing...");
     for (File file : files) {

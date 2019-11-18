@@ -1,5 +1,11 @@
 package com.sk.sorts.sortingAlgorithms.naturalMergeSort;
 
+/**
+ * A node class that contains a data object that stores the integer value found in an array and a pointer to the next
+ * Node.
+ *
+ * @author Samra Kasim
+ */
 public class Node {
   int data;
   Node next;

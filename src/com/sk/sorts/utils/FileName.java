@@ -1,18 +1,30 @@
 package com.sk.sorts.utils;
 
+/**
+ * FileName object representing the names of the files provided as input. Provides a helpful way to parse the name and
+ * size of the file to be used by methods in this application.
+ *
+ * @author Samra Kasim
+ */
 public class FileName {
 
-  private String fileName;
-  private int fileSize;
-  private String originalFileName;
+  private String fileName; // represents the name of the file such as ascending, descending, etc.
+  private int fileSize;  // represents the size of the file such as an int such as 1000, 2000, etc
+  private String originalFileName; // represents the original name of the file such as asc1k.dat
 
-  public FileName(String fileName, String fileSize) {
+  // constructor
+  public FileName(String fileName, String fileSize) throws NotValidInputException {
     this.originalFileName = fileName + fileSize + ".dat";
     this.fileName = convertFileNameToString(fileName);
     this.fileSize = convertFileSizeToInt(fileSize);
   }
 
-  private static int convertFileSizeToInt(String fileSize) {
+  /**
+   * Converts name of file such as 1k or 2k into the int value representing the object.
+   * @param fileSize: the String value representing the file size.
+   * @return the int value representing the file size.
+   */
+  private static int convertFileSizeToInt(String fileSize) throws NotValidInputException {
     if (fileSize.equals("50")) {
       return 50;
     } else if (fileSize.equals("1k") || fileSize.equals("1K")) {
@@ -26,10 +38,15 @@ public class FileName {
     } else if (fileSize.equals("20k") || fileSize.equals("20K")) {
       return 20000;
     }
-    return 0;
+    throw new NotValidInputException("Invalid input file.");
   }
 
-  private static String convertFileNameToString(String fileName) {
+  /**
+   * Converts filename to string for easier readability.
+   * @param fileName: String value representing the string name such as asc, rev, etc.
+   * @return String value representing the file, e.g., ascending, reverse, etc.
+   */
+  private static String convertFileNameToString(String fileName) throws NotValidInputException {
     if (fileName.equals("asc")) {
       return "ascending";
     } else if (fileName.equals("ran")) {
@@ -39,13 +56,20 @@ public class FileName {
     } else if (fileName.equals("dup")) {
       return "duplicates";
     }
-    return "null";
+    throw new NotValidInputException("Invalid input file.");
   }
 
+  /**
+   * To string method to pretty print the values of this object.
+   * @return String value representing object.
+   */
   public String toString() {
     return "File ["+ originalFileName +"] sorted in [" + this.fileName + "] order of size [" + this.fileSize + "]";
 
   }
+
+  // Getters & Setters
+
   public String getFileName() {
     return fileName;
   }

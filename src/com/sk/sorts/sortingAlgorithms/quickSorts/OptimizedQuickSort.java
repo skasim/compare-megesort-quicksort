@@ -1,34 +1,17 @@
 package com.sk.sorts.sortingAlgorithms.quickSorts;
 
-import java.util.Arrays;
-
+/**
+ * The class uses recursive methods from https://www.java67.com/2014/07/quicksort-algorithm-in-java-in-place-example.html
+ * and the use of insertion sort from https://www.techiedelight.com/hybrid-quicksort/
+ *
+ * @author Javin Paul and unknown
+ */
 public class OptimizedQuickSort {
-
   // TODO: from https://www.java67.com/2014/07/quicksort-algorithm-in-java-in-place-example.html
   // TODO: from https://www.techiedelight.com/hybrid-quicksort/
 
-  public static void main(String args[]) {
-
-    int[] input = { 7, 2, 1, 6, 8, 5, 3, 4};
-    System.out.println("Before sorting : " + Arrays.toString(input));
-    optimizedQuickSort(input, 5); // sort the integer array using quick sort algorithm
-    System.out.println("After sorting : " + Arrays.toString(input));
-
-
-    int[] input2 = { 23, 31, 1, 21, 36, 72};
-    System.out.println("Before sorting : " + Arrays.toString(input2));
-    optimizedQuickSort(input2, 4); // sort the integer array using quick sort algorithm
-    System.out.println("After sorting : " + Arrays.toString(input2));
-
-    // input with duplicates
-    int[] withDuplicates = { 11, 14, 16, 12, 11, 15};
-    System.out.println("Before sorting : " + Arrays.toString(withDuplicates));
-    optimizedQuickSort(withDuplicates, 3); // sort the array using quick sort algorithm
-    System.out.println("After sorting : " + Arrays.toString(withDuplicates));
-  }
-
   /**
-   * public method exposed to client, sorts given array using QuickSortMultiTry
+   * public method exposed to client, sorts given array using QuickSort
    * Algorithm in Java
    * @param array
    */

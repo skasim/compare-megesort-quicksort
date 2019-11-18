@@ -5,8 +5,21 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Helper class that facilitates reading and processing of input files and writing to output files.
+ *
+ * @author Samra Kasim
+ */
 public class ioUtils {
-
+  /**
+   * Method designed to deep copy an array, i.e., create a new array instead of passing it by reference. Since, the program
+   * design tests each algorith multiple times but only reads the input file, this method ensure that a new array is created
+   * and on this array the algorithms are applied. This way, the original array stays intact and can be copied again for
+   * algorithm application.
+   * @param originalArray: int[] representing the original array
+   * @param fileSize: int value representing the fileSize
+   * @return int[] representing a new array.
+   */
   public static int[] deepCopyArray(int[] originalArray, int fileSize) {
     int[] deepCopy = new int[fileSize];
 
@@ -16,7 +29,13 @@ public class ioUtils {
     return deepCopy;
   }
 
-  public static FileName parseFileName(String fileName) {
+  /**
+   * Method to parse the filename, which is the format asc1k.dat into a FileName object, which is then utilized by application
+   * for determining loop counts and for writing to output.
+   * @param fileName: String value representing the file name
+   * @return FileName object
+   */
+  public static FileName parseFileName(String fileName) throws NotValidInputException {
     int count = 0;
     String name = "";
     String fileSize = "";
@@ -74,11 +93,11 @@ public class ioUtils {
   }
 
   /**
-   * Helper method to facilitate the writing of an com.sk.paths.array to output. The method first loops through the com.sk.paths.array and
-   * then prints out the com.sk.paths.array integer by integer
+   * Helper method to facilitate the writing of an array to output. The method first loops through the array and
+   * then prints out the array integer by integer
    * @param outFile: File object representing the output file.
    * @param arr: int[] object representing the path.
-   * @param pathSize: int object representing the size of the path to mitigate use of .length or .size functions.
+   * @param arraySize: int object representing the size of the array to mitigate use of .length or .size functions.
    */
   public static void writeArray(File outFile, int[] arr, int arraySize)  {
     BufferedWriter writer = createWriter(outFile);

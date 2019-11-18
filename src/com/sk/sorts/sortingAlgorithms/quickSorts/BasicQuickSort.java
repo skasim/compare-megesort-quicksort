@@ -1,35 +1,13 @@
 package com.sk.sorts.sortingAlgorithms.quickSorts;
 
-import java.util.Arrays;
-
-
 /**
  * Java program to Sort integer array using QuickSort algorithm using recursion.
  * Recursive QuickSort algorithm, partitioned list into two parts by a pivot,
- * and then recursively sorts each list.
+ * and then recursively sorts each list. It is from https://www.java67.com/2014/07/quicksort-algorithm-in-java-in-place-example.html.
+ *
  * @author Javin Paul
  */
 public class BasicQuickSort {
-
-  public static void main(String args[]) {
-
-    int[] input = { 7, 2, 1, 6, 8, 5, 3, 4};
-    System.out.println("Before sorting : " + Arrays.toString(input));
-    basicQuickSort(input); // sort the integer array using quick sort algorithm
-    System.out.println("After sorting : " + Arrays.toString(input));
-
-
-    int[] input2 = { 23, 31, 1, 21, 36, 72};
-    System.out.println("Before sorting : " + Arrays.toString(input2));
-    basicQuickSort(input2); // sort the integer array using quick sort algorithm
-    System.out.println("After sorting : " + Arrays.toString(input2));
-
-    // input with duplicates
-    int[] withDuplicates = { 11, 14, 16, 12, 11, 15};
-    System.out.println("Before sorting : " + Arrays.toString(withDuplicates));
-    basicQuickSort(withDuplicates); // sort the array using quick sort algorithm
-    System.out.println("After sorting : " + Arrays.toString(withDuplicates));
-  }
 
   /**
    * public method exposed to client, sorts given array using QuickSort

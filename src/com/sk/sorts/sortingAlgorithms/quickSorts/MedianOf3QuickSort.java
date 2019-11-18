@@ -1,38 +1,16 @@
 package com.sk.sorts.sortingAlgorithms.quickSorts;
 
-import java.util.Arrays;
-
 /**
- * Class that uses median-of-three partition to sort an array. The partition code is
+ * Class that uses median-of-three partition to sort an array. The methods related to getting the median are from
+ * https://examples.javacodegeeks.com/core-java/quicksort-algorithm-in-java-code-example/ and the methods related to the
+ * quicksort and recursion are from https://examples.javacodegeeks.com/core-java/quicksort-algorithm-in-java-code-example/
  *
- * @author Rohit Joshi https://examples.javacodegeeks.com/core-java/quicksort-algorithm-in-java-code-example/
+ * @author Rohit Joshi and Javin Paul.
  *
  */
 public class MedianOf3QuickSort {
-  // TODO https://examples.javacodegeeks.com/core-java/quicksort-algorithm-in-java-code-example/
-
-  public static void main(String args[]) {
-
-    int[] input = { 7, 2, 1, 6, 8, 5, 3, 4};
-    System.out.println("Before sorting : " + Arrays.toString(input));
-    medianOf3QuickSort(input); // sort the integer array using quick sort algorithm
-    System.out.println("After sorting : " + Arrays.toString(input));
-
-
-    int[] input2 = { 23, 31, 1, 21, 36, 72};
-    System.out.println("Before sorting : " + Arrays.toString(input2));
-    medianOf3QuickSort(input2); // sort the integer array using quick sort algorithm
-    System.out.println("After sorting : " + Arrays.toString(input2));
-
-    // input with duplicates
-    int[] withDuplicates = { 11, 14, 16, 12, 11, 15};
-    System.out.println("Before sorting : " + Arrays.toString(withDuplicates));
-    medianOf3QuickSort(withDuplicates); // sort the array using quick sort algorithm
-    System.out.println("After sorting : " + Arrays.toString(withDuplicates));
-  }
-
   /**
-   * public method exposed to client, sorts given array using QuickSortMultiTry //TODO FIX
+   * public method exposed to client, sorts given array using QuickSort
    * Algorithm in Java
    * @param array
    */

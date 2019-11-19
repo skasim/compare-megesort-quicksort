@@ -48,6 +48,7 @@ public class MedianOf3QuickSort {
     // Recursively call quicksort with right part of the partitioned array
     recursiveQuickSort(array, idx, endIdx);
   }
+  // the base of this code is by Jain Paul, but the getMedian method and swap methods are by Rohit Joshi
   public static int getMedian(int[] a, int left,int right){
     int center = (left+right)/2;
 

@@ -24,7 +24,8 @@ public class NaturalLinkedMerge {
     Node sortedList = linkedMerge.mergeSort();
     return sortedList;
   }
-
+  // Modified code borrowed from online to create a pointers linked list that houses the run made that creates
+  // linked lists in sorted order
   private void createPointersLinkedList() {
     Node temp = startNode;
     addPointer(new Ptr(temp));
@@ -37,7 +38,7 @@ public class NaturalLinkedMerge {
       }
     }
   }
-
+  // Added the below to use the recursive method found online to create a sorted list
   private Node mergeSort() {
     Node sortedList = ptrStartNode.pointerTo(0, ptrSize, ptrStartNode).getNode();
     for (int i=1; i<ptrSize; i++) {
@@ -46,7 +47,7 @@ public class NaturalLinkedMerge {
 
     return sortedList;
   }
-
+  // Added below to add a node to the linked list
   public void addNode(int data) {
     Node node = new Node(data);
     if (startNode == null) {
@@ -59,7 +60,7 @@ public class NaturalLinkedMerge {
       temp.next = node;
     }
   }
-
+  // Added below to add a pointer to the pointers linked list
   private void addPointer(Ptr ptr) {
     if (ptrStartNode == null) {
       ptrStartNode = ptr;
@@ -73,7 +74,7 @@ public class NaturalLinkedMerge {
       ptrSize++;
     }
   }
-
+  // The methods below are by Jayesh Patel
   //Recursive Approach for Merging Two Sorted List
   private Node mergeTwoListRecursive(Node leftStart, Node rightStart){
     if(leftStart==null)

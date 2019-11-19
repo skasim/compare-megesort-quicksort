@@ -7,9 +7,6 @@ package com.sk.sorts.sortingAlgorithms.quickSorts;
  * @author Javin Paul and unknown
  */
 public class OptimizedQuickSort {
-  // TODO: from https://www.java67.com/2014/07/quicksort-algorithm-in-java-in-place-example.html
-  // TODO: from https://www.techiedelight.com/hybrid-quicksort/
-
   /**
    * public method exposed to client, sorts given array using QuickSort
    * Algorithm in Java
@@ -79,6 +76,9 @@ public class OptimizedQuickSort {
     }
     return left;
   }
+
+  // The base of this algorithm is by Javin Paul, but the insertion addition to it is by an uknown writer
+  // from techiedelight.com showing hypbrid implementation with an insertion sort
 
   // perform insertion sort on arr[]
   public static void insertionSort(int[] arr, int start, int n)

@@ -26,13 +26,12 @@ public class OptimizedQuickSort {
   public static void recursiveQuickSortWithInsertionSort(int[] array, int startIdx,
                                         int endIdx, int stoppingCase) {
 
-    int idx = partition(array, startIdx, endIdx);
-
     if (endIdx - startIdx <= stoppingCase) {
-      insertionSort(array, startIdx, array.length-1);
+      insertionSort(array, startIdx, endIdx);
       return;
     }
 
+    int idx = partition(array, startIdx, endIdx);
 
     // Recursively call quicksort with left part of the partitioned array
     recursiveQuickSortWithInsertionSort(array, startIdx, idx - 1, stoppingCase);

@@ -33,6 +33,9 @@ public class Sorts {
     String outputDir = args[1];
     String runFilename = args[2];
     int numberOfRuns = Integer.parseInt(args[3]);
+    if (numberOfRuns < 3) {
+      numberOfRuns = 3; // minimum number of runs to get proper run time;
+    }
     String csvRunFilename = runFilename + ".csv";
     File folder = new File(inputDir);
     File[] files = folder.listFiles();

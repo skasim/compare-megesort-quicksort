@@ -28,11 +28,11 @@ public class BasicQuickSort {
   public static void recursiveQuickSort(int[] array, int startIdx,
                                         int endIdx) {
 
-    int idx = partition(array, startIdx, endIdx);
-
     if (endIdx - startIdx <= 1) {
       return;
     }
+
+    int idx = partition(array, startIdx, endIdx);
 
     if (endIdx - startIdx == 2) {
       if (array[startIdx] > array[endIdx]) {

@@ -28,8 +28,6 @@ public class MedianOf3QuickSort {
   public static void recursiveQuickSort(int[] array, int startIdx,
                                         int endIdx) {
 
-    int idx = partition(array, startIdx, endIdx);
-
     if (endIdx - startIdx <= 1) {
       return;
     }
@@ -41,6 +39,8 @@ public class MedianOf3QuickSort {
         array[startIdx] = temp;
       }
     }
+
+    int idx = partition(array, startIdx, endIdx);
 
     // Recursively call quicksort with left part of the partitioned array
     recursiveQuickSort(array, startIdx, idx - 1);

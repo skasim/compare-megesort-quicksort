@@ -1,0 +1,230 @@
+
+#######################################################################
+
+    Lab4: Sorting Algorithms Run Time Analysis    
+
+          Using Recursive Sorts And Averaging 100 Runs Per Algorithm
+
+    By: Samra Kasim                                
+
+#######################################################################
+
+File [rev1k.dat] sorted in [reverse] order of size [1000]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [316659 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [323705 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [220678 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [8196 ns]. 
+
+  Run time of natural merge sort using a linked list is [1536023 ns]. 
+
+File [asc50.dat] sorted in [ascending] order of size [50]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [1274 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [338 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [300 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [149 ns]. 
+
+  Run time of natural merge sort using a linked list is [607 ns]. 
+
+File [dup1K.dat] sorted in [duplicates] order of size [1000]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [57054 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [124203 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [48661 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [1171 ns]. 
+
+  Run time of natural merge sort using a linked list is [1072646 ns]. 
+
+File [rev10K.dat] sorted in [reverse] order of size [10000]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [20547500 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [20379061 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [20320651 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [2597 ns]. 
+
+  Run time of natural merge sort using a linked list is [147062785 ns]. 
+
+File [ran1k.dat] sorted in [random] order of size [1000]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [89849 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [28312 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [23787 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [917 ns]. 
+
+  Run time of natural merge sort using a linked list is [996795 ns]. 
+
+File [dup10K.dat] sorted in [duplicates] order of size [10000]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [698485 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [501410 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [528545 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [7199 ns]. 
+
+  Run time of natural merge sort using a linked list is [190637215 ns]. 
+
+File [ran50.dat] sorted in [random] order of size [50]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [882 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [1039 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [656 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [103 ns]. 
+
+  Run time of natural merge sort using a linked list is [1323 ns]. 
+
+File [rev50.dat] sorted in [reverse] order of size [50]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [883 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [577 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [594 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [27 ns]. 
+
+  Run time of natural merge sort using a linked list is [2633 ns]. 
+
+File [asc1k.dat] sorted in [ascending] order of size [1000]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [315054 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [291182 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [293598 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [122 ns]. 
+
+  Run time of natural merge sort using a linked list is [2036 ns]. 
+
+File [dup50.dat] sorted in [duplicates] order of size [50]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [604 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [401 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [355 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [33 ns]. 
+
+  Run time of natural merge sort using a linked list is [1515 ns]. 
+
+File [asc2K.dat] sorted in [ascending] order of size [2000]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [1152304 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [1144942 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [1175405 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [224 ns]. 
+
+  Run time of natural merge sort using a linked list is [3877 ns]. 
+
+File [dup5K.dat] sorted in [duplicates] order of size [5000]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [329393 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [230546 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [243174 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [3392 ns]. 
+
+  Run time of natural merge sort using a linked list is [38126233 ns]. 
+
+File [asc10K.dat] sorted in [ascending] order of size [10000]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [28217798 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [28124812 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [28418630 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [2010 ns]. 
+
+  Run time of natural merge sort using a linked list is [19834 ns]. 
+
+File [rev5k.dat] sorted in [reverse] order of size [5000]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [5133108 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [5150823 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [5116230 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [952 ns]. 
+
+  Run time of natural merge sort using a linked list is [36490340 ns]. 
+
+File [ran5k.dat] sorted in [random] order of size [5000]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [333008 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [233382 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [247840 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [3368 ns]. 
+
+  Run time of natural merge sort using a linked list is [37799266 ns]. 
+
+File [ran2K.dat] sorted in [random] order of size [2000]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [113429 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [80920 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [76706 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [1255 ns]. 
+
+  Run time of natural merge sort using a linked list is [4892811 ns]. 
+
+File [ran10K.dat] sorted in [random] order of size [10000]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [724274 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [507543 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [536822 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [7351 ns]. 
+
+  Run time of natural merge sort using a linked list is [189001555 ns]. 
+
+File [dup2K.dat] sorted in [duplicates] order of size [2000]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [123228 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [82621 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [79283 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [1299 ns]. 
+
+  Run time of natural merge sort using a linked list is [4849794 ns]. 
+
+File [asc5k.dat] sorted in [ascending] order of size [5000]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [7073270 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [7069814 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [7108380 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [644 ns]. 
+
+  Run time of natural merge sort using a linked list is [9691 ns]. 
+
+File [rev2K.dat] sorted in [reverse] order of size [2000]
+  Run time of quicksort with first item as pivot and partitions of size one and two as stopping cases is [847746 ns]. 
+
+  Run time of quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish is [837648 ns]. 
+
+  Run time of quicksort with first item as pivot, 50 as stopping case, and insertion sort to finish is [838560 ns]. 
+
+  Run time of quicksort with median of three as pivot and partitions of size one and two as stopping cases is [378 ns]. 
+
+  Run time of natural merge sort using a linked list is [5711648 ns]. 

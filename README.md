@@ -16,5 +16,6 @@ will also be written using the same name but with a `.csv` appended), and each a
 * The write to output file appends to the last entry, so if generating a new file, delete the older version or update the output filename.
 * The two input files are provided in the `input` directory. Please only use the same file naming convention as found in the lab assignment.
 * The output files are in the `output` directory.
+* For input, only use input files where the numbers are separated by newline
 * Java version 1.8 and IDE is IntelliJ
 

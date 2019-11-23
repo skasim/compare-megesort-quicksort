@@ -28,16 +28,14 @@ public class MedianOf3QuickSort {
   public static void recursiveQuickSort(int[] array, int startIdx,
                                         int endIdx) {
 
+    // modified to account for arrays of size 1 or 2
     if (endIdx - startIdx <= 1) {
-      return;
-    }
-
-    if (endIdx - startIdx == 2) {
       if (array[startIdx] > array[endIdx]) {
         int temp = array[endIdx];
         array[endIdx] = array[startIdx];
         array[startIdx] = temp;
       }
+      return;
     }
 
     int idx = partition(array, startIdx, endIdx);

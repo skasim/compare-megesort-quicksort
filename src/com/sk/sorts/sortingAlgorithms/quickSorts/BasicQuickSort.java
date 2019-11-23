@@ -1,5 +1,7 @@
 package com.sk.sorts.sortingAlgorithms.quickSorts;
 
+import java.util.Arrays;
+
 /**
  * Java program to Sort integer array using QuickSort algorithm using recursion.
  * Recursive QuickSort algorithm, partitioned list into two parts by a pivot,
@@ -8,6 +10,13 @@ package com.sk.sorts.sortingAlgorithms.quickSorts;
  * @author Javin Paul
  */
 public class BasicQuickSort {
+
+  public static void main(String[] args) {
+    int[] input = {23, 31, 1, 21, 36, 72, 39, 22, 4, 5, 7, 3, 99, 85, 72};
+    System.out.println("Before sorting : " + Arrays.toString(input));
+    basicQuickSort(input); // sort the integer array using quick sort algorithm
+    System.out.println("After sorting : " + Arrays.toString(input));
+  }
 
   /**
    * public method exposed to client, sorts given array using QuickSort
@@ -28,25 +37,27 @@ public class BasicQuickSort {
   public static void recursiveQuickSort(int[] array, int startIdx,
                                         int endIdx) {
 
+    // modified to account for arrays of size 1 or 2
     if (endIdx - startIdx <= 1) {
-      return;
-    }
-
-    int idx = partition(array, startIdx, endIdx);
-
-    if (endIdx - startIdx == 2) {
       if (array[startIdx] > array[endIdx]) {
         int temp = array[endIdx];
         array[endIdx] = array[startIdx];
         array[startIdx] = temp;
       }
+      return;
     }
 
+    int idx = partition(array, startIdx, endIdx);
+
     // Recursively call quicksort with left part of the partitioned array
-    recursiveQuickSort(array, startIdx, idx - 1);
+    if (startIdx < idx - 1) {
+      recursiveQuickSort(array, startIdx, idx - 1);
+    }
 
     // Recursively call quicksort with right part of the partitioned array
-    recursiveQuickSort(array, idx, endIdx);
+    if (endIdx > idx) {
+      recursiveQuickSort(array, idx, endIdx);
+    }
   }
 
   /**

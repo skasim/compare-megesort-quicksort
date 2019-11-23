@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * Helper class that facilitates reading and processing of input files and writing to output files.
@@ -67,7 +68,6 @@ public class ioUtils {
       System.err.println(e.toString());
     }
     return writer;
-
   }
 
   /**
@@ -93,27 +93,38 @@ public class ioUtils {
   }
 
   /**
-   * Helper method to facilitate the writing of an array to output. The method first loops through the array and
-   * then prints out the array integer by integer
+   * Helper method to create a PrintWriter.
    * @param outFile: File object representing the output file.
+   * @return PrinteWriter object
+   */
+  private static PrintWriter createPrintWriter(File outFile) {
+    FileWriter fileWriter = null;
+    try {
+      fileWriter = new FileWriter(outFile);
+    } catch (IOException e) {
+      System.err.println(e.toString());
+    }
+    return new PrintWriter(fileWriter);
+  }
+
+  /**
+   * Helper method to facilitate the writing of an array to output. The method first loops through the array and
+   * then prints out the array integer by integer. Does not print a newline at the end of the file.
+   * @param outfile: File object representing the output file.
    * @param arr: int[] object representing the path.
    * @param arraySize: int object representing the size of the array to mitigate use of .length or .size functions.
    */
-  public static void writeArray(File outFile, int[] arr, int arraySize)  {
-    BufferedWriter writer = createWriter(outFile);
-    try {
-      writer.newLine();
-      // Loops through an array to print it out as integers instead of using a .toString method
-      for (int i=0; i<arraySize; i++) {
-        writer.write(arr[i] + " ");
+
+  public static void writeArray(File outfile, int[] arr, int arraySize) {
+    PrintWriter printWriter = createPrintWriter(outfile);
+
+    for (int i=0; i<arraySize; i++) {
+      if (i != arraySize -1) {
+        printWriter.print(arr[i] + "\n");
+      } else {
+        printWriter.print(arr[i]);
       }
-    } catch (IOException e) {
-      System.err.println(e.toString());
     }
-    try {
-      writer.close();
-    } catch (IOException e) {
-      System.err.println(e.toString());
-    }
+    printWriter.close();
   }
 }

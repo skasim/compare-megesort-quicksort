@@ -11,13 +11,6 @@ import java.util.Arrays;
  */
 public class BasicQuickSort {
 
-  public static void main(String[] args) {
-    int[] input = {23, 31, 1, 21, 36, 72, 39, 22, 4, 5, 7, 3, 99, 85, 72};
-    System.out.println("Before sorting : " + Arrays.toString(input));
-    basicQuickSort(input); // sort the integer array using quick sort algorithm
-    System.out.println("After sorting : " + Arrays.toString(input));
-  }
-
   /**
    * public method exposed to client, sorts given array using QuickSort
    * Algorithm in Java

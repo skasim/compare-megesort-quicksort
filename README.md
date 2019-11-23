@@ -7,8 +7,8 @@ a linked list. All sorts are recursive.
 * To compile the program run `javac $(find . -name '*.java')` from the `src` directory.
 * To run the program, make sure to be in the `src` directory and run:
 ` java com.sk.sorts.Sorts ../input/ ../output/ run_file.txt 10` to process the input files in the `input` directory,
-output the files to the `output`, create a file that is in human readable format with run times called `run_file.txt` (a csv file
-will also be written using the same name but with a `.csv` appended), and each algorithm will be run `10` times.
+output the files to the `output`, create a file that is in human readable format with run times called `run_file.txt`.
+Each algorithm will be run `10` times.
 
 
 ## Errata

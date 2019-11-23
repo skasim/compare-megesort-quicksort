@@ -15,15 +15,17 @@ import static com.sk.sorts.utils.ioUtils.*;
  * the name of the runFile, which represents the human readable output file and the number of runs that the user wishes to make.
  * The higher the number of runs the more accurate the runtime determination for each algorithm since these run times are averaged.
  * The output files are found in the output directory and three different output files are provided: 1) sorted output files for
- * file size of 50, 2) file that has run time in human readable format; and 3) a csv file for analysis. Much of the code for
- * the algorithms was found online. The resources are cited in the javadoc for the specific algorithms.
+ * file size of 50, 2) file that has run time in human readable format. Much of the code for the algorithms was found
+ * online. The resources are cited in the javadoc for the specific algorithms.
+ *
+ * Please use the README for directions on program execution.
  *
  * @author Samra Kasim
  */
 public class Sorts {
 
   public static void main(String[] args) {
-    // Check if input and output directories, run filename, and numbe rof runs  are provided. If not, exit program execution.
+    // Check if input and output directories, run filename, and number of runs  are provided. If not, exit program execution.
     if (args.length != 4) {
       System.err.println("Input and output file paths must be provided to run this simulation. Exiting now.");
       System.exit(1);
@@ -36,13 +38,11 @@ public class Sorts {
     if (numberOfRuns < 3) {
       numberOfRuns = 3; // minimum number of runs to get proper run time;
     }
-    String csvRunFilename = runFilename + ".csv";
     File folder = new File(inputDir);
     File[] files = folder.listFiles();
 
-    // Create new runFile and csvFile object
+    // Create new runFile
     File runFile = new File(outputDir + runFilename);
-    File csvFile = new File(outputDir + csvRunFilename);
 
     // Add some pizazz to the output files
     writeFileLineByLine(runFile, "#######################################################################\n");
@@ -50,9 +50,6 @@ public class Sorts {
     writeFileLineByLine(runFile, "          Using Recursive Sorts And Averaging " + numberOfRuns+" Runs Per Algorithm\n");
     writeFileLineByLine(runFile, "    By: Samra Kasim                                \n");
     writeFileLineByLine(runFile, "#######################################################################\n");
-
-    writeFileLineByLine(csvFile, "Run Time CSV File By Samra Kasim");
-    writeFileLineByLine(csvFile, "order,size,time,algorithm");
 
     System.out.println("Beginning processing...");
     // Parse through each file in the input director
@@ -63,7 +60,7 @@ public class Sorts {
           // Instantiate a new scanner object for each file
           Scanner scanner = new Scanner(file);
           // Process each file and run the algorithms on each file
-          processSorts(runFile, numberOfRuns, file, outputDir, scanner, csvFile);
+          processSorts(runFile, numberOfRuns, file, outputDir, scanner);
         } catch (FileNotFoundException e) {
           System.err.println("File [" + file.getName() + "] not found. " + e);
         } catch (NotValidInputException e) {

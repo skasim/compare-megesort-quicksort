@@ -1,7 +1,5 @@
 package com.sk.sorts.sortingAlgorithms.quickSorts;
 
-import java.util.Arrays;
-
 /**
  * Java program to Sort integer array using QuickSort algorithm using recursion.
  * Recursive QuickSort algorithm, partitioned list into two parts by a pivot,

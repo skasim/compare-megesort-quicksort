@@ -1,103 +1,103 @@
 
 Run Time CSV File By Samra Kasim
 order,size,time,algorithm
-reverse,1000,316659,basic quick sort
-reverse,1000,323705,insertion quick sort (100)
-reverse,1000,220678,insertion quick sort (50)
-reverse,1000,8196,median of three quick sort
-reverse,1000,1536023,natural merge sort
-ascending,50,1274,basic quick sort
-ascending,50,338,insertion quick sort (100)
-ascending,50,300,insertion quick sort (50)
-ascending,50,149,median of three quick sort
-ascending,50,607,natural merge sort
-duplicates,1000,57054,basic quick sort
-duplicates,1000,124203,insertion quick sort (100)
-duplicates,1000,48661,insertion quick sort (50)
-duplicates,1000,1171,median of three quick sort
-duplicates,1000,1072646,natural merge sort
-reverse,10000,20547500,basic quick sort
-reverse,10000,20379061,insertion quick sort (100)
-reverse,10000,20320651,insertion quick sort (50)
-reverse,10000,2597,median of three quick sort
-reverse,10000,147062785,natural merge sort
-random,1000,89849,basic quick sort
-random,1000,28312,insertion quick sort (100)
-random,1000,23787,insertion quick sort (50)
-random,1000,917,median of three quick sort
-random,1000,996795,natural merge sort
-duplicates,10000,698485,basic quick sort
-duplicates,10000,501410,insertion quick sort (100)
-duplicates,10000,528545,insertion quick sort (50)
-duplicates,10000,7199,median of three quick sort
-duplicates,10000,190637215,natural merge sort
-random,50,882,basic quick sort
-random,50,1039,insertion quick sort (100)
-random,50,656,insertion quick sort (50)
-random,50,103,median of three quick sort
-random,50,1323,natural merge sort
-reverse,50,883,basic quick sort
-reverse,50,577,insertion quick sort (100)
-reverse,50,594,insertion quick sort (50)
-reverse,50,27,median of three quick sort
-reverse,50,2633,natural merge sort
-ascending,1000,315054,basic quick sort
-ascending,1000,291182,insertion quick sort (100)
-ascending,1000,293598,insertion quick sort (50)
-ascending,1000,122,median of three quick sort
-ascending,1000,2036,natural merge sort
-duplicates,50,604,basic quick sort
-duplicates,50,401,insertion quick sort (100)
-duplicates,50,355,insertion quick sort (50)
-duplicates,50,33,median of three quick sort
-duplicates,50,1515,natural merge sort
-ascending,2000,1152304,basic quick sort
-ascending,2000,1144942,insertion quick sort (100)
-ascending,2000,1175405,insertion quick sort (50)
-ascending,2000,224,median of three quick sort
-ascending,2000,3877,natural merge sort
-duplicates,5000,329393,basic quick sort
-duplicates,5000,230546,insertion quick sort (100)
-duplicates,5000,243174,insertion quick sort (50)
-duplicates,5000,3392,median of three quick sort
-duplicates,5000,38126233,natural merge sort
-ascending,10000,28217798,basic quick sort
-ascending,10000,28124812,insertion quick sort (100)
-ascending,10000,28418630,insertion quick sort (50)
-ascending,10000,2010,median of three quick sort
-ascending,10000,19834,natural merge sort
-reverse,5000,5133108,basic quick sort
-reverse,5000,5150823,insertion quick sort (100)
-reverse,5000,5116230,insertion quick sort (50)
-reverse,5000,952,median of three quick sort
-reverse,5000,36490340,natural merge sort
-random,5000,333008,basic quick sort
-random,5000,233382,insertion quick sort (100)
-random,5000,247840,insertion quick sort (50)
-random,5000,3368,median of three quick sort
-random,5000,37799266,natural merge sort
-random,2000,113429,basic quick sort
-random,2000,80920,insertion quick sort (100)
-random,2000,76706,insertion quick sort (50)
-random,2000,1255,median of three quick sort
-random,2000,4892811,natural merge sort
-random,10000,724274,basic quick sort
-random,10000,507543,insertion quick sort (100)
-random,10000,536822,insertion quick sort (50)
-random,10000,7351,median of three quick sort
-random,10000,189001555,natural merge sort
-duplicates,2000,123228,basic quick sort
-duplicates,2000,82621,insertion quick sort (100)
-duplicates,2000,79283,insertion quick sort (50)
-duplicates,2000,1299,median of three quick sort
-duplicates,2000,4849794,natural merge sort
-ascending,5000,7073270,basic quick sort
-ascending,5000,7069814,insertion quick sort (100)
-ascending,5000,7108380,insertion quick sort (50)
-ascending,5000,644,median of three quick sort
-ascending,5000,9691,natural merge sort
-reverse,2000,847746,basic quick sort
-reverse,2000,837648,insertion quick sort (100)
-reverse,2000,838560,insertion quick sort (50)
-reverse,2000,378,median of three quick sort
-reverse,2000,5711648,natural merge sort
+reverse,1000,1498445,basic quick sort
+reverse,1000,2342778,insertion quick sort (100)
+reverse,1000,389979,insertion quick sort (50)
+reverse,1000,119344,median of three quick sort
+reverse,1000,2197262,natural merge sort
+ascending,50,3060,basic quick sort
+ascending,50,441,insertion quick sort (100)
+ascending,50,577,insertion quick sort (50)
+ascending,50,1565,median of three quick sort
+ascending,50,4240,natural merge sort
+duplicates,1000,803710,basic quick sort
+duplicates,1000,298846,insertion quick sort (100)
+duplicates,1000,84914,insertion quick sort (50)
+duplicates,1000,14677,median of three quick sort
+duplicates,1000,2217519,natural merge sort
+reverse,10000,25192407,basic quick sort
+reverse,10000,21034940,insertion quick sort (100)
+reverse,10000,20804328,insertion quick sort (50)
+reverse,10000,35654,median of three quick sort
+reverse,10000,156400373,natural merge sort
+random,1000,79283,basic quick sort
+random,1000,36974,insertion quick sort (100)
+random,1000,47191,insertion quick sort (50)
+random,1000,12527,median of three quick sort
+random,1000,1289256,natural merge sort
+duplicates,10000,732753,basic quick sort
+duplicates,10000,507898,insertion quick sort (100)
+duplicates,10000,534574,insertion quick sort (50)
+duplicates,10000,75895,median of three quick sort
+duplicates,10000,187267212,natural merge sort
+random,50,6808,basic quick sort
+random,50,2877,insertion quick sort (100)
+random,50,931,insertion quick sort (50)
+random,50,485,median of three quick sort
+random,50,2997,natural merge sort
+reverse,50,2709,basic quick sort
+reverse,50,900,insertion quick sort (100)
+reverse,50,709,insertion quick sort (50)
+reverse,50,284,median of three quick sort
+reverse,50,3038,natural merge sort
+ascending,1000,296686,basic quick sort
+ascending,1000,327872,insertion quick sort (100)
+ascending,1000,349567,insertion quick sort (50)
+ascending,1000,1174,median of three quick sort
+ascending,1000,2837,natural merge sort
+duplicates,50,991,basic quick sort
+duplicates,50,605,insertion quick sort (100)
+duplicates,50,486,insertion quick sort (50)
+duplicates,50,318,median of three quick sort
+duplicates,50,2294,natural merge sort
+ascending,2000,1196074,basic quick sort
+ascending,2000,1223598,insertion quick sort (100)
+ascending,2000,1181203,insertion quick sort (50)
+ascending,2000,2506,median of three quick sort
+ascending,2000,4833,natural merge sort
+duplicates,5000,318922,basic quick sort
+duplicates,5000,233853,insertion quick sort (100)
+duplicates,5000,269700,insertion quick sort (50)
+duplicates,5000,34531,median of three quick sort
+duplicates,5000,38141453,natural merge sort
+ascending,10000,33109894,basic quick sort
+ascending,10000,28861732,insertion quick sort (100)
+ascending,10000,29153698,insertion quick sort (50)
+ascending,10000,12018,median of three quick sort
+ascending,10000,21770,natural merge sort
+reverse,5000,5282063,basic quick sort
+reverse,5000,5133576,insertion quick sort (100)
+reverse,5000,5158034,insertion quick sort (50)
+reverse,5000,9799,median of three quick sort
+reverse,5000,35842484,natural merge sort
+random,5000,341678,basic quick sort
+random,5000,231426,insertion quick sort (100)
+random,5000,245194,insertion quick sort (50)
+random,5000,33551,median of three quick sort
+random,5000,37846602,natural merge sort
+random,2000,113176,basic quick sort
+random,2000,74998,insertion quick sort (100)
+random,2000,92784,insertion quick sort (50)
+random,2000,12328,median of three quick sort
+random,2000,5094404,natural merge sort
+random,10000,935337,basic quick sort
+random,10000,556066,insertion quick sort (100)
+random,10000,539265,insertion quick sort (50)
+random,10000,69081,median of three quick sort
+random,10000,194622751,natural merge sort
+duplicates,2000,139879,basic quick sort
+duplicates,2000,171682,insertion quick sort (100)
+duplicates,2000,81496,insertion quick sort (50)
+duplicates,2000,12397,median of three quick sort
+duplicates,2000,4733724,natural merge sort
+ascending,5000,7240807,basic quick sort
+ascending,5000,7127512,insertion quick sort (100)
+ascending,5000,7199565,insertion quick sort (50)
+ascending,5000,6268,median of three quick sort
+ascending,5000,12517,natural merge sort
+reverse,2000,877067,basic quick sort
+reverse,2000,1351472,insertion quick sort (100)
+reverse,2000,860886,insertion quick sort (50)
+reverse,2000,5833,median of three quick sort
+reverse,2000,5839017,natural merge sort

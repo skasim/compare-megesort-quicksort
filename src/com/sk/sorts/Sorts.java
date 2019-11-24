@@ -35,8 +35,8 @@ public class Sorts {
     String outputDir = args[1];
     String runFilename = args[2];
     int numberOfRuns = Integer.parseInt(args[3]);
-    if (numberOfRuns < 3) {
-      numberOfRuns = 3; // minimum number of runs to get proper run time;
+    if (numberOfRuns < 10) {
+      numberOfRuns = 10; // minimum number of runs to get proper run time;
     }
     File folder = new File(inputDir);
     File[] files = folder.listFiles();

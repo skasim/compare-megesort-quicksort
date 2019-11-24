@@ -55,23 +55,23 @@ public class Runs {
     }
 
     // Quicksort with first item as pivot and partitions of size one and two as stopping cases
-    File basicQsFile = new File(outputDir + "out_" + fileName.getFileName() + fileName.getFileSize() + "_basicQs.txt");
+    File basicQsFile = new File(outputDir + "out_" + fileName.getFileName() + fileName.getFileSize() + "_basicQs_SKasim.txt");
     basicQuickSortRuns(runFile, basicQsFile, numberOfRuns, origArray, arraySize, fileName);
 
     // Quicksort with first item as pivot, 100 as stopping case, and insertion sort to finish
-    File insertQs100File = new File(outputDir + "out_" + fileName.getFileName() + fileName.getFileSize() + "_insertQs100.txt");
+    File insertQs100File = new File(outputDir + "out_" + fileName.getFileName() + fileName.getFileSize() + "_insertQs100_SKasim.txt");
     optimizedQuickSortRuns(runFile, insertQs100File, numberOfRuns, origArray, arraySize, 100, fileName);
 
     // Quicksort with first item as pivot, 50 ass stopping case, and insertion sort to finish
-    File insertQs50File = new File(outputDir + "out_" + fileName.getFileName() + fileName.getFileSize() + "_insertQs50.txt");
+    File insertQs50File = new File(outputDir + "out_" + fileName.getFileName() + fileName.getFileSize() + "_insertQs50_SKasim.txt");
     optimizedQuickSortRuns(runFile, insertQs50File, numberOfRuns, origArray, arraySize, 50, fileName);
 
     // Quicksort with median-of-three as pivot and partitions of size one and two as stopping cases
-    File medianQsFile = new File(outputDir + "out_" + fileName.getFileName() + fileName.getFileSize() + "_medianQs.txt");
+    File medianQsFile = new File(outputDir + "out_" + fileName.getFileName() + fileName.getFileSize() + "_medianQs_SKasim.txt");
     medianOf3QuickSortRuns(runFile, medianQsFile, numberOfRuns, origArray, arraySize, fileName);
 
     // Natural merge sort with linked list
-    File natMergeFile = new File(outputDir + "out_" + fileName.getFileName() + fileName.getFileSize() + "_natMerge.txt");
+    File natMergeFile = new File(outputDir + "out_" + fileName.getFileName() + fileName.getFileSize() + "_natMerge_SKasim.txt");
     naturalLinkedMergeSortRuns(runFile, natMergeFile, numberOfRuns, origArray, arraySize, fileName);
   }
 

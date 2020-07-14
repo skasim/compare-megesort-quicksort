@@ -1,41 +1,32 @@
 package com.sk.sorts.sortingAlgorithms.naturalMergeSort;
 
+/**
+ * This code in this class is taken from http://javabypatel.blogspot.com/2015/12/merge-sort-linked-list.html.
+ *
+ * Specifically, the code provided the methods for the recursion on two sorted lists and the printing of the linked list.
+ * The code was modified to include the creation of a pointers linked list to mimic a natural merge sort that would be used
+ * to store the runs of sorted arrays created in a natural merge sort.
+ *
+ * @author Jayesh Patel
+ */
 public class NaturalLinkedMerge {
-  // TODO http://javabypatel.blogspot.com/2015/12/merge-sort-linked-list.html
-  public Node startNode;
-  Ptr[] ptrsList = new Ptr[100];
-  public Ptr ptrStartNode;
-  public int ptrSize;
 
-
-  public static void main(String[] args) {
-//    NaturalLinkedMerge linkedMerge= new NaturalLinkedMerge();
-//    linkedMerge.addNode(5);
-//    linkedMerge.addNode(8);
-//    linkedMerge.addNode(13);
-//    linkedMerge.addNode(16);
-//    linkedMerge.addNode(2);
-//    linkedMerge.addNode(6);
-//    linkedMerge.addNode(10);
-//    linkedMerge.addNode(14);
-//    linkedMerge.addNode(11);
-//    linkedMerge.addNode(1);
-//    linkedMerge.addNode(4);
-//    linkedMerge.addNode(15);
-//    linkedMerge.printLinkList(linkedMerge.startNode);
-//    linkedMerge.createPointersLinkedList();
-//    Node sl = linkedMerge.ptrStartNode.getNode();
-//    Node sortedList = linkedMerge.mergeSort(sl, linkedMerge.ptrStartNode);
-//    System.out.println("\n\nfinal\n");
-//    linkedMerge.printLinkList(sortedList);
-  }
+  Node startNode;
+  Ptr ptrStartNode;
+  int ptrSize;
 
   public NaturalLinkedMerge() {
     ptrSize = 0;
   }
 
-
-  public void createPointersLinkedList() {
+  public static Node naturalMergeSort(NaturalLinkedMerge linkedMerge) {
+    linkedMerge.createPointersLinkedList();
+    Node sortedList = linkedMerge.mergeSort();
+    return sortedList;
+  }
+  // Modified code borrowed from online to create a pointers linked list that houses the run made that creates
+  // linked lists in sorted order
+  private void createPointersLinkedList() {
     Node temp = startNode;
     addPointer(new Ptr(temp));
     while(temp.getNext() != null) {
@@ -47,8 +38,8 @@ public class NaturalLinkedMerge {
       }
     }
   }
-
-  public Node mergeSort() {
+  // Added the below to use the recursive method found online to create a sorted list
+  private Node mergeSort() {
     Node sortedList = ptrStartNode.pointerTo(0, ptrSize, ptrStartNode).getNode();
     for (int i=1; i<ptrSize; i++) {
       sortedList = mergeTwoListRecursive(sortedList, ptrStartNode.pointerTo(i, ptrSize, ptrStartNode).getNode());
@@ -56,17 +47,7 @@ public class NaturalLinkedMerge {
 
     return sortedList;
   }
-
-  public Node mergeSort(Node sortedList, Ptr startPtr) {
-    if (startPtr == null|| startPtr.getNext() == null) {
-      return sortedList;
-    }
-
-    Node right = startPtr.getNext().getNode();
-    sortedList = mergeSort(mergeTwoListRecursive(sortedList, right), startPtr.getNext());
-    return sortedList;
-  }
-
+  // Added below to add a node to the linked list
   public void addNode(int data) {
     Node node = new Node(data);
     if (startNode == null) {
@@ -79,7 +60,7 @@ public class NaturalLinkedMerge {
       temp.next = node;
     }
   }
-
+  // Added below to add a pointer to the pointers linked list
   private void addPointer(Ptr ptr) {
     if (ptrStartNode == null) {
       ptrStartNode = ptr;
@@ -93,22 +74,7 @@ public class NaturalLinkedMerge {
       ptrSize++;
     }
   }
-
-  private void createPointersList() {
-    Node temp = startNode;
-    int i=0;
-    ptrsList[i] = new Ptr(temp);
-    while(temp.getNext() != null) {
-      Node prev = temp;
-      temp = temp.getNext();
-      if (temp.getData() < prev.getData()) {
-        prev.setNext(null);
-        i++;
-        Ptr ptr = new Ptr(temp);
-        ptrsList[i] = ptr;
-      }
-    }
-  }
+  // The methods below are by Jayesh Patel
   //Recursive Approach for Merging Two Sorted List
   private Node mergeTwoListRecursive(Node leftStart, Node rightStart){
     if(leftStart==null)
@@ -134,27 +100,10 @@ public class NaturalLinkedMerge {
     Node temp = startNode;
     int count = 0;
     while(temp!=null){
-//      System.out.print(temp.getData() + " ");
       outputArr[count] = temp.getData();
       temp = temp.getNext();
       count++;
     }
     return outputArr;
-  }
-
-  private void printPtrLinkList(Ptr startNode) {
-    Ptr temp = startNode;
-    while(temp!=null){
-      System.out.print(temp.getNode().getData() + " ");
-      temp = temp.getNext();
-    }
-  }
-
-  private void printPtrList(Ptr[] ptrs) {
-    for (int i=0; i<ptrs.length; i++) {
-      if (ptrs[i] !=null) {
-        System.out.print(ptrs[i].getNode().getData() +" ");
-      }
-    }
   }
 }

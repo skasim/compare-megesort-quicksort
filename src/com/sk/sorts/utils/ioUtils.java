@@ -4,9 +4,23 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
+/**
+ * Helper class that facilitates reading and processing of input files and writing to output files.
+ *
+ * @author Samra Kasim
+ */
 public class ioUtils {
-
+  /**
+   * Method designed to deep copy an array, i.e., create a new array instead of passing it by reference. Since, the program
+   * design tests each algorith multiple times but only reads the input file, this method ensure that a new array is created
+   * and on this array the algorithms are applied. This way, the original array stays intact and can be copied again for
+   * algorithm application.
+   * @param originalArray: int[] representing the original array
+   * @param fileSize: int value representing the fileSize
+   * @return int[] representing a new array.
+   */
   public static int[] deepCopyArray(int[] originalArray, int fileSize) {
     int[] deepCopy = new int[fileSize];
 
@@ -16,7 +30,13 @@ public class ioUtils {
     return deepCopy;
   }
 
-  public static FileName parseFileName(String fileName) {
+  /**
+   * Method to parse the filename, which is the format asc1k.dat into a FileName object, which is then utilized by application
+   * for determining loop counts and for writing to output.
+   * @param fileName: String value representing the file name
+   * @return FileName object
+   */
+  public static FileName parseFileName(String fileName) throws NotValidInputException {
     int count = 0;
     String name = "";
     String fileSize = "";
@@ -48,7 +68,6 @@ public class ioUtils {
       System.err.println(e.toString());
     }
     return writer;
-
   }
 
   /**
@@ -74,27 +93,38 @@ public class ioUtils {
   }
 
   /**
-   * Helper method to facilitate the writing of an com.sk.paths.array to output. The method first loops through the com.sk.paths.array and
-   * then prints out the com.sk.paths.array integer by integer
+   * Helper method to create a PrintWriter.
    * @param outFile: File object representing the output file.
-   * @param arr: int[] object representing the path.
-   * @param pathSize: int object representing the size of the path to mitigate use of .length or .size functions.
+   * @return PrinteWriter object
    */
-  public static void writeArray(File outFile, int[] arr, int arraySize)  {
-    BufferedWriter writer = createWriter(outFile);
+  private static PrintWriter createPrintWriter(File outFile) {
+    FileWriter fileWriter = null;
     try {
-      writer.newLine();
-      // Loops through an array to print it out as integers instead of using a .toString method
-      for (int i=0; i<arraySize; i++) {
-        writer.write(arr[i] + " ");
+      fileWriter = new FileWriter(outFile);
+    } catch (IOException e) {
+      System.err.println(e.toString());
+    }
+    return new PrintWriter(fileWriter);
+  }
+
+  /**
+   * Helper method to facilitate the writing of an array to output. The method first loops through the array and
+   * then prints out the array integer by integer. Does not print a newline at the end of the file.
+   * @param outfile: File object representing the output file.
+   * @param arr: int[] object representing the path.
+   * @param arraySize: int object representing the size of the array to mitigate use of .length or .size functions.
+   */
+
+  public static void writeArray(File outfile, int[] arr, int arraySize) {
+    PrintWriter printWriter = createPrintWriter(outfile);
+
+    for (int i=0; i<arraySize; i++) {
+      if (i != arraySize -1) {
+        printWriter.print(arr[i] + "\n");
+      } else {
+        printWriter.print(arr[i]);
       }
-    } catch (IOException e) {
-      System.err.println(e.toString());
     }
-    try {
-      writer.close();
-    } catch (IOException e) {
-      System.err.println(e.toString());
-    }
+    printWriter.close();
   }
 }

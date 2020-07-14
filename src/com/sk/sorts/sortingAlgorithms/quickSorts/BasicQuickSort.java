@@ -1,35 +1,13 @@
 package com.sk.sorts.sortingAlgorithms.quickSorts;
 
-import java.util.Arrays;
-
-
 /**
  * Java program to Sort integer array using QuickSort algorithm using recursion.
  * Recursive QuickSort algorithm, partitioned list into two parts by a pivot,
- * and then recursively sorts each list.
+ * and then recursively sorts each list. It is from https://www.java67.com/2014/07/quicksort-algorithm-in-java-in-place-example.html.
+ *
  * @author Javin Paul
  */
 public class BasicQuickSort {
-
-  public static void main(String args[]) {
-
-    int[] input = { 7, 2, 1, 6, 8, 5, 3, 4};
-    System.out.println("Before sorting : " + Arrays.toString(input));
-    basicQuickSort(input); // sort the integer array using quick sort algorithm
-    System.out.println("After sorting : " + Arrays.toString(input));
-
-
-    int[] input2 = { 23, 31, 1, 21, 36, 72};
-    System.out.println("Before sorting : " + Arrays.toString(input2));
-    basicQuickSort(input2); // sort the integer array using quick sort algorithm
-    System.out.println("After sorting : " + Arrays.toString(input2));
-
-    // input with duplicates
-    int[] withDuplicates = { 11, 14, 16, 12, 11, 15};
-    System.out.println("Before sorting : " + Arrays.toString(withDuplicates));
-    basicQuickSort(withDuplicates); // sort the array using quick sort algorithm
-    System.out.println("After sorting : " + Arrays.toString(withDuplicates));
-  }
 
   /**
    * public method exposed to client, sorts given array using QuickSort
@@ -50,25 +28,27 @@ public class BasicQuickSort {
   public static void recursiveQuickSort(int[] array, int startIdx,
                                         int endIdx) {
 
-    int idx = partition(array, startIdx, endIdx);
-
+    // modified to account for arrays of size 1 or 2
     if (endIdx - startIdx <= 1) {
-      return;
-    }
-
-    if (endIdx - startIdx == 2) {
       if (array[startIdx] > array[endIdx]) {
         int temp = array[endIdx];
         array[endIdx] = array[startIdx];
         array[startIdx] = temp;
       }
+      return;
     }
 
+    int idx = partition(array, startIdx, endIdx);
+
     // Recursively call quicksort with left part of the partitioned array
-    recursiveQuickSort(array, startIdx, idx - 1);
+    if (startIdx < idx - 1) {
+      recursiveQuickSort(array, startIdx, idx - 1);
+    }
 
     // Recursively call quicksort with right part of the partitioned array
-    recursiveQuickSort(array, idx, endIdx);
+    if (endIdx > idx) {
+      recursiveQuickSort(array, idx, endIdx);
+    }
   }
 
   /**

@@ -1,34 +1,14 @@
 package com.sk.sorts.sortingAlgorithms.quickSorts;
 
-import java.util.Arrays;
-
+/**
+ * The class uses recursive methods from https://www.java67.com/2014/07/quicksort-algorithm-in-java-in-place-example.html
+ * and the use of insertion sort from https://www.techiedelight.com/hybrid-quicksort/
+ *
+ * @author Javin Paul and unknown
+ */
 public class OptimizedQuickSort {
-
-  // TODO: from https://www.java67.com/2014/07/quicksort-algorithm-in-java-in-place-example.html
-  // TODO: from https://www.techiedelight.com/hybrid-quicksort/
-
-  public static void main(String args[]) {
-
-    int[] input = { 7, 2, 1, 6, 8, 5, 3, 4};
-    System.out.println("Before sorting : " + Arrays.toString(input));
-    optimizedQuickSort(input, 5); // sort the integer array using quick sort algorithm
-    System.out.println("After sorting : " + Arrays.toString(input));
-
-
-    int[] input2 = { 23, 31, 1, 21, 36, 72};
-    System.out.println("Before sorting : " + Arrays.toString(input2));
-    optimizedQuickSort(input2, 4); // sort the integer array using quick sort algorithm
-    System.out.println("After sorting : " + Arrays.toString(input2));
-
-    // input with duplicates
-    int[] withDuplicates = { 11, 14, 16, 12, 11, 15};
-    System.out.println("Before sorting : " + Arrays.toString(withDuplicates));
-    optimizedQuickSort(withDuplicates, 3); // sort the array using quick sort algorithm
-    System.out.println("After sorting : " + Arrays.toString(withDuplicates));
-  }
-
   /**
-   * public method exposed to client, sorts given array using QuickSortMultiTry
+   * public method exposed to client, sorts given array using QuickSort
    * Algorithm in Java
    * @param array
    */
@@ -46,13 +26,12 @@ public class OptimizedQuickSort {
   public static void recursiveQuickSortWithInsertionSort(int[] array, int startIdx,
                                         int endIdx, int stoppingCase) {
 
-    int idx = partition(array, startIdx, endIdx);
-
     if (endIdx - startIdx <= stoppingCase) {
-      insertionSort(array, startIdx, array.length-1);
+      insertionSort(array, startIdx, endIdx);
       return;
     }
 
+    int idx = partition(array, startIdx, endIdx);
 
     // Recursively call quicksort with left part of the partitioned array
     recursiveQuickSortWithInsertionSort(array, startIdx, idx - 1, stoppingCase);
@@ -96,6 +75,9 @@ public class OptimizedQuickSort {
     }
     return left;
   }
+
+  // The base of this algorithm is by Javin Paul, but the insertion addition to it is by an uknown writer
+  // from techiedelight.com showing hypbrid implementation with an insertion sort
 
   // perform insertion sort on arr[]
   public static void insertionSort(int[] arr, int start, int n)
